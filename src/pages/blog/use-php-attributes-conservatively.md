@@ -42,7 +42,7 @@ use Attributes\Filter;
 
 class FilterClass
 {
-  #[Filter]
+  #[Filter] // [tl! highlight]
   public function filterMe($operation, $data)
   {
     // filtering

@@ -6,7 +6,7 @@
 </div>
 
 <script>
-  export const theme = (() => {
+  const theme = (() => {
     if (typeof localStorage !== 'undefined' && localStorage.getItem('theme')) {
       return localStorage.getItem('theme') as string;
     }

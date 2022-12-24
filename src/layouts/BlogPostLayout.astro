@@ -28,6 +28,14 @@ const { frontmatter } = Astro.props;
 }
 
 .post-container :global(pre) {
-    @apply p-4 rounded;
+    @apply p-4 rounded overflow-x-auto;
+}
+
+.post-container :global(pre .line-number) {
+    @apply mr-2;
+}
+
+.post-container :global(:not(pre) code) {
+    @apply bg-nord-s-300 text-nord-n-700 px-1 rounded;
 }
 </style>
