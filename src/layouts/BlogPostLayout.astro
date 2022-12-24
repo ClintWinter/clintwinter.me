@@ -1,0 +1,33 @@
+---
+import MainLayout from "./MainLayout.astro";
+const { frontmatter } = Astro.props;
+---
+
+<MainLayout title={`Clint Winter | ${frontmatter.title}`}>
+    <main class="max-w-prose mx-auto px-2 text-nord-n-600 dark:text-nord-s-300">
+        <h1 class="text-3xl font-bold">{frontmatter.title}</h1>
+        <p class="mb-8">{new Date(frontmatter.publishedAt).toDateString()}</p>
+
+        <article class="post-container">
+            <slot />
+        </article>
+    </main>
+</MainLayout>
+
+<style>
+.post-container {
+    @apply text-lg;
+}
+
+.post-container > :global(*) {
+    @apply mb-4;
+}
+
+.post-container :global(h1) {
+    @apply text-3xl font-bold leading-none pt-6;
+}
+
+.post-container :global(pre) {
+    @apply p-4 rounded;
+}
+</style>

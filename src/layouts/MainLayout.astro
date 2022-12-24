@@ -1,0 +1,21 @@
+---
+import Nav from "../components/Nav.astro";
+import '@fontsource/cabin/variable.css';
+import '@fontsource/cabin/variable-italic.css';
+const { title } = Astro.props;
+---
+
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="viewport" content="width=device-width" />
+		<meta name="generator" content={Astro.generator} />
+		<title>{title}</title>
+	</head>
+	<body class="bg-nord-s-100 text-nord-n-700 dark:text-nord-s-100 dark:bg-nord-n-800">
+        <Nav />
+
+        <slot />
+	</body>
+</html>

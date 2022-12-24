@@ -1,0 +1,18 @@
+---
+import Theme from "./Theme.astro";
+---
+
+
+<nav class="w-full px-2 py-6 mb-12">
+    <div class="container mx-auto flex justify-between items-center">
+        <ul>
+            <li><a class="text-2xl font-bold" href="/">Clint Winter</a></li>
+        </ul>
+
+        <ul class="flex justify-between items-center space-x-4">
+            <li><a class="hover:bg-nord-s-200 dark:hover:bg-nord-n-600 p-2 rounded" href="/blog">Blog</a></li>
+            <li><a class="hover:bg-nord-s-200 dark:hover:bg-nord-n-600 p-2 rounded" href="/reading-list">Reading List</a></li>
+            <li><Theme /></li>
+        </ul>
+    </div>
+</nav>

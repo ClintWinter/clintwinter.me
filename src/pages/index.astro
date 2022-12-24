@@ -1,15 +1,19 @@
 ---
+import MainLayout from "../layouts/MainLayout.astro";
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+
+<MainLayout title="Clint Winter">
+    <main class="container mx-auto p-4 bg-white shadow rounded-sm">
+        <h1 class="text-4xl font-bold mb-2">Clint Winter</h1>
+        <h2 class="text-xl font-semibold mb-6">Web Developer</h2>
+
+        <p class="text-xl">
+            A senior full-stack developer at Givebutter.
+            I mostly work with Laravel and React.
+            I've been a developer for 7 years now.
+            Check out my <a href="/blog">blog</a> for some useful Laravel tips,
+            or view my <a href="/reading-list">reading list</a> for good recommendations and inspiration.
+        </p>
+    </main>
+</MainLayout>
