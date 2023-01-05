@@ -8,7 +8,7 @@ publishedAt: 2022-03-29 19:58:02
 
 [PHP Attributes](https://www.php.net/manual/en/language.attributes.overview.php), introduced in PHP 8, open up a lot of interesting new patterns. However, similar to the outdated but cliché saying: "PHP allows for poor development practices", I think attributes allow for some wonky programming, which is why my instincts say use them sparingly. Don't revert to a junior developer who just discovered design patterns and start shoe-horning them into every possible solution.
 
-One example to look at is Spatie's [data-transfer-object package](https://github.com/spatie/data-transfer-object). In this case, they can be an interesting way to provide a different DX (Developer Experience).
+One example to look at is Spatie's [data package](https://github.com/spatie/laravel-data). In this case, they can be an interesting way to provide a different DX (Developer Experience).
 
 I like to think of Attributes as ways to tag various structures in your PHP code.
 

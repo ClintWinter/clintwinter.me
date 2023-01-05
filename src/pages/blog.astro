@@ -8,22 +8,31 @@ interface Frontmatter {
     updatedAt?: string;
 }
 
+import { stripHTML } from '../helpers';
 import type { MarkdownInstance } from "astro";
-
 import MainLayout from "../layouts/MainLayout.astro";
-const posts = await Astro.glob<Frontmatter>('./blog/*.md');
-import * as post from "./blog/use-php-attributes-conservatively.md";
+
+
+const posts = (await Astro.glob<Frontmatter>('./blog/*.md'))
+    .filter((post) => post.frontmatter.publishedAt)
+    .sort((a, b) => new Date(b.frontmatter.publishedAt!).getTime() - new Date(a.frontmatter.publishedAt!).getTime());
+
 ---
 
 <MainLayout title="Clint Winter | Blog">
     <main class="container mx-auto px-2">
-        <h1 class="text-3xl font-bold mb-6">Posts</h1>
+        <h1 class="text-3xl font-bold mb-12">Posts</h1>
 
-        <ul>
+        <ul class="max-w-prose space-y-8">
             {posts.map((post) => (
                 <li>
-                    <a class="mb-2 font-semibold underline text-nord-n-600 hover:text-nord-a-orange" href={post.url}>{post.frontmatter.title}</a>
-                    <p class="text-nord-f-slate">{post.frontmatter.description}</p>
+                    <a class="mb-2 font-semibold leading-tight text-nord-a-green dark:text-nord-a-yellow hover:underline" href={post.url}>
+                        {post.frontmatter.title}
+                    </a>
+
+                    <p class="text-nord-n-600 dark:text-nord-s-300 opacity-70">
+                        {new Date(post.frontmatter?.publishedAt).toLocaleDateString()}
+                    </p>
                 </li>
             ))}
         </ul>

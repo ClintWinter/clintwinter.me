@@ -8,6 +8,7 @@ module.exports = {
 		extend: {
             fontFamily: {
                 'sans': ['cabin', ...defaultTheme.fontFamily.sans],
+                'mono': ['jetbrains-mono', ...defaultTheme.fontFamily.mono],
             },
             colors: {
                 nord: {
@@ -32,7 +33,7 @@ module.exports = {
                         red: '#BF616A',
                         orange: '#D08770',
                         yellow: '#EBCB8B',
-                        green: '#A3BE8C',
+                        green: '#738E5C',
                         purple: '#B48EAD',
                     }
                 },

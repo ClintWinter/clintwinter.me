@@ -1,5 +1,6 @@
 ---
 import MainLayout from "./MainLayout.astro";
+import '@fontsource/jetbrains-mono/variable.css';
 const { frontmatter } = Astro.props;
 ---
 
@@ -23,6 +24,14 @@ const { frontmatter } = Astro.props;
     @apply mb-4;
 }
 
+.post-container :global(a) {
+    @apply text-nord-a-green font-semibold underline;
+}
+
+:global(.dark) .post-container :global(a) {
+    @apply text-nord-a-yellow font-semibold underline;
+}
+
 .post-container :global(h1) {
     @apply text-3xl font-bold leading-none pt-6;
 }
@@ -36,6 +45,10 @@ const { frontmatter } = Astro.props;
 }
 
 .post-container :global(:not(pre) code) {
-    @apply bg-nord-s-300 text-nord-n-700 px-1 rounded;
+    @apply bg-nord-s-300 text-nord-f-slate p-1 rounded;
+}
+
+:global(.dark) .post-container :global(:not(pre) code) {
+    @apply bg-nord-n-900 text-nord-f-teal p-1 rounded;
 }
 </style>
