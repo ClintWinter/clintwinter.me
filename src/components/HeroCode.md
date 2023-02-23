@@ -2,7 +2,7 @@
 ---
 
 ```php
-$me = new Developer(
+$me = Developer::instance(
   name: 'Clint Winter',
   location: 'New Jersey',
   company: 'Givebutter',

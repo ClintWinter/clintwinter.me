@@ -1,5 +1,6 @@
 ---
 import Nav from "../components/Nav.astro";
+import '@fontsource/ia-writer-quattro/all.css';
 import '@fontsource/jetbrains-mono/variable.css';
 import '@fontsource/jetbrains-mono/variable-italic.css';
 import Footer from "../components/Footer.astro";
@@ -14,7 +15,7 @@ const { title } = Astro.props;
 		<meta name="generator" content={Astro.generator} />
 		<title>{title}</title>
 	</head>
-	<body class="font-mono bg-nord-s-100 text-nord-n-700 dark:text-nord-s-100 dark:bg-nord-n-800">
+	<body class="font-sans text-lg bg-slate-100 text-slate-800 dark:bg-slate-800 dark:text-slate-100">
         <Nav />
         <slot />
         <Footer />

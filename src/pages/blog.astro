@@ -8,7 +8,6 @@ interface Frontmatter {
     updatedAt?: string;
 }
 
-import { stripHTML } from '../helpers';
 import type { MarkdownInstance } from "astro";
 import MainLayout from "../layouts/MainLayout.astro";
 
@@ -20,17 +19,17 @@ const posts = (await Astro.glob<Frontmatter>('./blog/*.md'))
 ---
 
 <MainLayout title="Clint Winter | Blog">
-    <main class="container mx-auto px-2">
-        <h1 class="text-3xl font-bold mb-12">Posts</h1>
+    <main class="max-w-5xl mx-auto px-4">
+        <h1 class="text-4xl mb-12 font-semibold text-slate-700 dark:text-slate-200">Latest Posts</h1>
 
         <ul class="max-w-prose space-y-8">
             {posts.map((post) => (
                 <li>
-                    <a class="mb-2 font-semibold leading-tight text-nord-a-green dark:text-nord-a-yellow hover:underline" href={post.url}>
+                    <a class="mb-2 font-semibold text-xl text-emerald-600 dark:text-emerald-400 leading-tight hover:underline" href={post.url}>
                         {post.frontmatter.title}
                     </a>
 
-                    <p class="text-nord-n-600 dark:text-nord-s-300 opacity-70">
+                    <p class="text-slate-500">
                         {new Date(post.frontmatter?.publishedAt).toLocaleDateString()}
                     </p>
                 </li>

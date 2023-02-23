@@ -1,0 +1,115 @@
+---
+import '@fontsource/abhaya-libre';
+import ReadingListItem from '../components/ReadingListItem.astro';
+import ReadingListSection from '../components/ReadingListSection.astro';
+import MainLayout from "../layouts/MainLayout.astro";
+---
+
+<MainLayout title="Clint Winter | Reading List">
+    <main class="max-w-5xl mx-auto px-4 rounded-sm">
+        <h1 class="text-4xl mb-12 font-semibold text-slate-700 dark:text-slate-200">Reading list</h1>
+
+        <ReadingListSection title={'January 2022'}>
+            <ReadingListItem 
+                tags={['Rails', 'Architecture']} 
+                href="https://dev.37signals.com/vanilla-rails-is-plenty/"
+            >Vanilla rails is plenty</ReadingListItem>
+
+            <ReadingListItem 
+                tags={['Rails', 'Architecture', 'DDD']}
+                href="https://world.hey.com/jorge/code-i-like-i-domain-driven-boldness-71456476"
+            >Code I like (I): Domain-driven boldness</ReadingListItem>
+
+            <ReadingListItem 
+                tags={['Rails', 'Architecture', 'DDD']}
+                href="https://world.hey.com/jorge/code-i-like-ii-fractal-journeys-b7688f93"
+            >Code I like (II): Fractal journeys</ReadingListItem>
+
+            <ReadingListItem 
+                tags={['Rails', 'Architecture', 'DDD']}
+                href="https://world.hey.com/jorge/code-i-like-iii-good-concerns-5a1b391c"
+            >Code I like (III): Good concerns</ReadingListItem>
+
+            <ReadingListItem 
+                tags={['SOLID']}
+                href="https://dannorth.net/2021/03/16/cupid-the-back-story/"
+            >CUPID: The back story</ReadingListItem>
+
+            <ReadingListItem 
+                tags={['PHP']}
+                href="https://josephsilber.com/posts/2016/07/13/closure-from-callable-in-php-7-1"
+            >The new Closure::fromCallable() in PHP 7.1</ReadingListItem>
+
+            <ReadingListItem 
+                tags={['PHP']}
+                href="https://php.watch/versions/8.1/first-class-callable-syntax"
+            >First class callable syntax</ReadingListItem>
+
+            <ReadingListItem 
+                tags={['PHP']}
+                href="https://stitcher.io/blog/strategies"
+            >Dynamic Strategies</ReadingListItem>
+
+            <ReadingListItem 
+                tags={['PHP']}
+                href="https://laravel-news.com/using-dtos-to-keep-context"
+            >Using DTOs to keep context</ReadingListItem>
+
+            <!-- Laravel -->
+            <ReadingListItem 
+                tags={['PHP']}
+                href="https://mateusguimaraes.com/posts/scaling-laravel"
+            >Scaling Laravel</ReadingListItem>
+
+            <ReadingListItem 
+                tags={['PHP']}
+                href="https://flareapp.io/blog/32-how-were-using-static-analysis-to-improve-our-codebase"
+            >How we're using static analysis to improve our codebase</ReadingListItem>
+
+            <ReadingListItem 
+                tags={['PHP']}
+                href="https://planetscale.com/blog/laravels-safety-mechanisms"
+            >Laravel's Safety Mechanisms</ReadingListItem>
+
+            <ReadingListItem 
+                tags={['PHP']}
+                href="https://www.kai-sassnowski.com/post/contract-tests/"
+            >Contract Tests</ReadingListItem>
+
+            <ReadingListItem 
+                tags={['PHP']}
+                href="https://laravel-news.com/facades"
+            >Facades</ReadingListItem>
+
+            <ReadingListItem 
+                tags={['Dates']}
+                href="https://fhur.me/posts/always-use-closed-open-intervals"
+            >Always use closed/open intervals</ReadingListItem>
+
+            <ReadingListItem 
+                tags={['HTML']}
+                href="https://www.htmlhell.dev"
+            >Always use closed/open intervals</ReadingListItem>
+
+            <ReadingListItem 
+                tags={['PHP', 'OOP']}
+                href="https://www.amazon.com/Object-Design-Style-Matthias-Noback/dp/1617296856"
+            >Object Design Style Guide - Matthias Noback</ReadingListItem>
+
+            <ReadingListItem 
+                tags={['Docker', 'PHP']}
+                href="https://downing.tech/posts/help-developers-contribute-adding-docker-support-to-packages"
+            >Help developers contribute: Adding docker support to packages</ReadingListItem>
+
+            <ReadingListItem 
+                tags={['Security', 'Laravel']}
+                href="https://laravel-news.com/laravel-content-security-policies"
+            >Laravel content security policies</ReadingListItem>
+
+            <ReadingListItem 
+                tags={['Security', 'CSP']}
+                href="https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP"
+            >CSP</ReadingListItem>
+        </ReadingListSection>
+    </main>
+</MainLayout>

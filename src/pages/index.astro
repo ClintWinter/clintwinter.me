@@ -8,37 +8,40 @@ interface Frontmatter {
     updatedAt?: string;
 }
 
+import '@fontsource/abhaya-libre';
 import MainLayout from "../layouts/MainLayout.astro";
 import { Content as HeroCode } from '../components/HeroCode.md';
 
-const posts = (await Astro.glob<Frontmatter>('./blog/*.md'))
+const latestPosts = (await Astro.glob<Frontmatter>('./blog/*.md'))
     .filter((post) => post.frontmatter.publishedAt)
     .sort((a, b) => new Date(b.frontmatter.publishedAt!).getTime() - new Date(a.frontmatter.publishedAt!).getTime())
     .slice(0, 5);
 ---
 
 <MainLayout title="Clint Winter">
-    <main class="container mx-auto p-4 rounded-sm">
-        <section class="mb-16">
-            <h1 class="text-5xl font-bold dark:text-nord-s-100 mb-6">Hi, I'm Clint Winter 👋</h1>
-            <HeroCode />
+    <main class="max-w-5xl mx-auto p-4 rounded-sm">
+        <section aria-label="About Me" class="mb-16">
+            <h1 class="text-5xl font-bold mb-8">Hi, I'm Clint Winter</h1>
+            <p class="text-2xl text-slate-600 dark:text-slate-300">I'm a software developer at <a class="font-semibold text-emerald-600 dark:text-emerald-400 hover:underline" href="https://givebutter.com/" rel="noreferer noopener">Givebutter</a>. I work with Laravel and React in my daily work. I love learning new programming paradigms and finding ways to incorporate them into my problem-solving toolset.</p>
         </section>
 
-        <section>
-            <h2 class="mb-6 font-bold text-3xl dark:text-nord-s-100">Latest Posts</h2>
-            <ul>
-            {posts.map((post) => (
-                <li class="mb-6 text-xl">
-                    <a class="font-semibold text-nord-a-green dark:text-nord-a-yellow hover:underline" href={post.url}>
-                        {post.frontmatter.title}
-                    </a>
-                    <p class="text-nord-a-300 opacity-70 text-sm">
-                        {new Date(post.frontmatter?.publishedAt).toLocaleDateString()}
-                    </p>
-                </li>
-            ))}
-            </ul>
-        </section>
+        <div class="flex flex-col lg:flex-row space-x-16 mb-12">
+            <section>
+                <h2 class="mb-6 font-bold text-3xl text-slate-600 dark:text-slate-300">Latest Posts</h2>
+                <ul class="space-y-10">
+                {latestPosts.map((post) => (
+                    <li class="text-xl">
+                        <a class="font-semibold text-emerald-600 dark:text-emerald-400 hover:underline" href={post.url}>
+                            {post.frontmatter.title}
+                        </a>
+                        <p class="text-nord-a-300 opacity-70 text-sm">
+                            {new Date(post.frontmatter?.publishedAt).toLocaleDateString()}
+                        </p>
+                    </li>
+                ))}
+                </ul>
+            </section>
+        </div>
     </main>
 </MainLayout>
 

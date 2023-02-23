@@ -1,0 +1,23 @@
+---
+const { href, tags = [] } = Astro.props;
+
+const baseURI = new URL(href).hostname;
+---
+
+<li>
+    <div class="flex items-baseline">
+        <a class="mb-2 font-semibold text-xl text-emerald-600 dark:text-emerald-400 leading-tight hover:underline" href={href} rel="noopener noreferer">
+            <slot />
+        </a>
+
+        <span class="ml-2 text-slate-500 text-xs p-1 rounded hover:no-underline">{baseURI}</span>
+    </div>
+
+    {Boolean(tags.length) && (
+        <div class="flex gap-x-2">
+            {tags.map(tag => (
+                <div class="px-1 bg-slate-200 dark:bg-slate-700 text-sm rounded border border-slate-600 border-opacity-40 shadow-sm">{tag}</div>
+            ))}
+        </div>
+    )}
+</li>

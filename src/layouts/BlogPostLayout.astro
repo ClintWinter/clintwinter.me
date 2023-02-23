@@ -1,15 +1,14 @@
 ---
 import MainLayout from "./MainLayout.astro";
-import '@fontsource/jetbrains-mono/variable.css';
 const { frontmatter } = Astro.props;
 ---
 
 <MainLayout title={`Clint Winter | ${frontmatter.title}`}>
     <main class="max-w-prose mx-auto px-2 text-nord-n-600 dark:text-nord-s-300">
-        <h1 class="text-3xl font-bold">{frontmatter.title}</h1>
+        <h1 class="text-3xl leading-none font-semibold mb-4">{frontmatter.title}</h1>
         <p class="mb-8">{new Date(frontmatter.publishedAt).toDateString()}</p>
 
-        <article class="post-container">
+        <article class="post-container text-lg leading-relaxed mb-24">
             <slot />
         </article>
     </main>
@@ -17,25 +16,86 @@ const { frontmatter } = Astro.props;
 
 <style>
 .post-container {
-    @apply text-lg;
+    @apply text-lg leading-relaxed;
+}
+
+.post-container :global(pre.torchlight) {
+    @apply !bg-slate-900;
 }
 
 .post-container > :global(*) {
-    @apply mb-4;
+    @apply mb-6;
 }
 
+.post-container :global(img) {
+    @apply mx-auto;
+}
+
+/* LISTS */
+.post-container :global(ol) {
+    @apply list-decimal ml-8 my-8;
+}
+
+.post-container :global(* ol) {
+    @apply list-decimal ml-8 my-2;
+}
+
+.post-container :global(ol li:not(:last-child)) {
+    @apply mb-2;
+}
+
+.post-container :global(li::marker) {
+    @apply font-bold text-slate-500;
+}
+
+.post-container :global(ul) {
+    @apply list-disc ml-8 my-8;
+}
+
+.post-container :global(* ul) {
+    @apply list-disc ml-8 my-2;
+}
+
+.post-container :global(ul li:not(:last-child)) {
+    @apply mb-2;
+}
+
+.post-container :global(li *:not(:last-child)) {
+    @apply mb-2;
+}
+
+/* LINKS */
 .post-container :global(a) {
-    @apply text-nord-a-green font-semibold underline;
+    @apply text-emerald-600 font-semibold hover:underline;
 }
 
 :global(.dark) .post-container :global(a) {
-    @apply text-nord-a-yellow font-semibold underline;
+    @apply text-emerald-400 font-semibold hover:underline;
 }
 
+/* QUOTES */
+.post-container :global(blockquote) {
+    @apply p-4 border-l-8 border-emerald-500 bg-slate-200 rounded;
+}
+
+:global(.dark) .post-container :global(blockquote) {
+    @apply p-4 border-l-8 border-emerald-500 bg-slate-700 rounded shadow;
+}
+
+/* HEADINGS */
 .post-container :global(h1) {
     @apply text-3xl font-bold leading-none pt-6;
 }
 
+.post-container :global(h2) {
+    @apply text-2xl font-bold leading-none pt-6;
+}
+
+.post-container :global(h3) {
+    @apply text-lg font-bold leading-none pt-6;
+}
+
+/* CODE */
 .post-container :global(pre) {
     @apply p-4 rounded overflow-x-auto;
 }
@@ -45,10 +105,35 @@ const { frontmatter } = Astro.props;
 }
 
 .post-container :global(:not(pre) code) {
-    @apply bg-nord-s-300 text-nord-f-slate p-1 rounded;
+    @apply bg-slate-300 text-sky-700 px-1 rounded;
 }
 
 :global(.dark) .post-container :global(:not(pre) code) {
-    @apply bg-nord-n-900 text-nord-f-teal p-1 rounded;
+    @apply bg-slate-700 text-sky-200 px-1 rounded;
+}
+
+/* TABLES */
+.post-container :global(table th) {
+    @apply px-4 py-2 text-slate-600 text-base tracking-tighter leading-none border border-slate-200;
+}
+
+.post-container :global(table td) {
+    @apply px-4 py-2 leading-none border border-slate-200;
+}
+
+.post-container :global(table tbody tr) {
+    @apply even:bg-slate-200;
+}
+
+:global(.dark) .post-container :global(table th) {
+    @apply px-4 py-2 text-slate-300 leading-none border border-slate-700;
+}
+
+:global(.dark) .post-container :global(table td) {
+    @apply px-4 py-2 leading-none border border-slate-700;
+}
+
+:global(.dark) .post-container :global(table tbody tr) {
+    @apply even:bg-slate-900;
 }
 </style>

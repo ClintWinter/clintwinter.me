@@ -6,7 +6,7 @@ author: Clint Winter
 publishedAt: 2022-03-24 20:13:08
 ---
 
-[The guard](https://github.com) clause is a nifty pattern that provides a super-simple way to clean up your code. Their main function is to terminate a block of code early, which reduces indentation of your code and therefore makes your code *much* easier to read and reason about.
+The guard clause is a nifty pattern that provides a super-simple way to clean up your code. Their main function is to terminate a block of code early, which reduces indentation of your code and therefore makes your code *much* easier to read and reason about.
 
 Too often, I see entire method bodies wrapped in if-statements. Every time your code is indented another level, you are adding another piece of context that must be kept track of mentally while reading the code.
 

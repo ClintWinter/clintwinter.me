@@ -7,12 +7,9 @@ export default defineConfig({
     integrations: [tailwind()],
 
     markdown: {
-        remarkPlugins: [torchlight],
-
+        remarkPlugins: [
+            [torchlight, { config: { theme: 'github-dark' }}],
+        ],
         extendDefaultPlugins: true,
-
-        shikiConfig: {
-            theme: 'nord',
-        },
     },
 });

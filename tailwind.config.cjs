@@ -3,11 +3,12 @@ const defaultTheme = require('tailwindcss/defaultTheme');
 /** @type {import('tailwindcss').Config} */
 module.exports = {
     darkMode: 'class',
-	content: ['./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}'],
-	theme: {
-		extend: {
+    content: ['./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}'],
+    theme: {
+        extend: {
             fontFamily: {
-                'sans': ['cabin', ...defaultTheme.fontFamily.sans],
+                'display': ['Abhaya Libre', ...defaultTheme.fontFamily.serif],
+                'sans': ['iA Writer Quattro', ...defaultTheme.fontFamily.sans],
                 'mono': ['jetbrains-mono', ...defaultTheme.fontFamily.mono],
             },
             colors: {
@@ -39,6 +40,6 @@ module.exports = {
                 },
             },
         },
-	},
-	plugins: [],
+    },
+    plugins: [],
 }

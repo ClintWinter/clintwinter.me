@@ -77,33 +77,33 @@ function valid(field, visibleField) {
 Let me also provide some simplified HTML so you can see a sample of the function's usage.
 
 ```html
-<form id=\"myForm\">
+<form id="myForm">
     <div>
         <input 
-            name=\"Description\" 
-            type=\"text\" 
-            oninput=\"
+            name="Description" 
+            type="text" 
+            oninput="
                 if (valid(this)) { 
                     edit(this); 
                 }
-            \"
+            "
         >
     </div>
 
     <div>
         <input 
-            name=\"DueDate\"
-            type=\"text\"
-            oninput=\"
+            name="DueDate"
+            type="text"
+            oninput="
                 if (valid(this, document.getElementById('myForm'))) { 
                     edit(this); 
                 }
-            \"
+            "
         >
 
     </div>
 
-    <button type=\"submit\">Submit</button>
+    <button type="submit">Submit</button>
 </form>
 ```
 
@@ -248,13 +248,13 @@ So now our usage looks like this:
 
 ```html
 <input 
-   name=\"DueDate\"
-   type=\"text\"
-   oninput=\"
+   name="DueDate"
+   type="text"
+   oninput="
        if (valid(this, {date:true})) { 
            edit(this); 
        }
-   \"
+   "
 >
 ```
 
@@ -341,7 +341,7 @@ function valid(value, validationRules) {
 
     // bug fix here
     if (validationRules.required === undefined && !value)
-	return [];
+        return [];
 
     var errors = [];
     var result;
@@ -391,7 +391,7 @@ var valid = (function() {
 
     return function(value, validationRules) {
         if (validationRules.required === undefined && !value)
-	    return [];
+            return [];
 
         var errors = [];
         var result;
@@ -408,11 +408,11 @@ var valid = (function() {
 That's going to be our final refactor. Let's see how the client utilizes our function now.
 
 ```html
-<div id=\"DescriptionContainer\">
+<div id="DescriptionContainer">
     <input
-        name=\"Description\"
-        value=\"text\"
-        oninput=\"
+        name="Description"
+        value="text"
+        oninput="
             var errors = valid(this.value, {required:true, maxlength:20});
             
             if (errors.length) {
@@ -425,10 +425,10 @@ That's going to be our final refactor. Let's see how the client utilizes our fun
                 elErrors.classList.add('hidden');
                 elErrors.innerHTML = '';
             }
-        \"
+        "
     >
 
-    <div class=\"errors hidden\"></div>
+    <div class="errors hidden"></div>
 </div>
 ```
 
