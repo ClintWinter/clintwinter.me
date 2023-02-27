@@ -5,18 +5,18 @@ const baseURI = new URL(href).hostname;
 ---
 
 <li>
-    <div class="flex items-baseline">
-        <a class="mb-2 font-semibold text-xl text-emerald-600 dark:text-emerald-400 leading-tight hover:underline" href={href} rel="noopener noreferer">
+    <div class="flex flex-col md:flex-row items-baseline mb-2">
+        <a class="font-semibold text-lg md:text-xl text-sky-600 dark:text-sky-400 leading-tight hover:underline" href={href} rel="noopener noreferer">
             <slot />
         </a>
 
-        <span class="ml-2 text-slate-500 text-xs p-1 rounded hover:no-underline">{baseURI}</span>
+        <span class="md:ml-2 text-slate-500 text-xs md:p-1 rounded hover:no-underline">{baseURI}</span>
     </div>
 
     {Boolean(tags.length) && (
         <div class="flex gap-x-2">
             {tags.map(tag => (
-                <div class="px-1 bg-slate-200 dark:bg-slate-700 text-sm rounded border border-slate-600 border-opacity-40 shadow-sm">{tag}</div>
+                <div class="px-1 bg-slate-200 dark:bg-slate-700 text-xs md:text-sm rounded border border-slate-600 border-opacity-40 shadow-sm">{tag}</div>
             ))}
         </div>
     )}

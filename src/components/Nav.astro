@@ -2,17 +2,90 @@
 import Theme from "./Theme.astro";
 ---
 
+<nav class="h-screen overflow-y-scroll col-span-3 xl:col-span-2 hidden md:flex flex-col gap-y-8 bg-slate-200 shadow-inner dark:bg-slate-900 p-6">
+    <a href="/">
+        <img class="rounded-full dark:shadow-inner" src="/assets/avatar.jpeg" alt="Profile avatar" />
+    </a>
 
-<nav class="w-full py-6 mb-12">
-    <div class="max-w-5xl px-4 mx-auto flex justify-between items-center">
-        <ul>
-            <li><a class="text-2xl font-bold" href="/">Clint Winter</a></li>
-        </ul>
+    <ul class="space-y-2">
+        <li><a class="text-2xl font-bold dark:text-white" href="/">Clint Winter</a></li>
+        <li><a class="hover:underline text-slate-700 dark:text-slate-200" href="/blog">Blog</a></li>
+        <li><a class="hover:underline text-slate-700 dark:text-slate-200" href="/reading-list">Reading List</a></li>
+    </ul>
 
-        <ul class="flex justify-between items-center space-x-4 uppercase">
-            <li><a class="transition p-2 rounded" href="/blog">Blog</a></li>
-            <li><a class="transition p-2 rounded" href="/reading-list">Reading List</a></li>
-            <li><Theme /></li>
-        </ul>
+    <ul class="space-y-2">
+        <li class="text-2xl font-bold dark:text-white">Links</li>
+        <li class="text-slate-700 dark:text-slate-200"><a class="hover:underline" rel="noopener noreferer" href="https://github.com/ClintWinter">
+            Github
+        </a></li>
+        <li class="text-slate-700 dark:text-slate-200"><a class="hover:underline" rel="noopener noreferer" href="https://linkedin.com/clint-winter">
+            LinkedIn
+        </a></li>
+        <li class="text-slate-700 dark:text-slate-200"><a class="hover:underline" rel="noopener noreferer" href="https://twitter.com/clintwinter13">
+            Twitter
+        </a></li>
+        <li class="text-slate-700 dark:text-slate-200"><a class="hover:underline" rel="noopener noreferer" href="/assets/ClintWinterResume.pdf">
+            Resume
+        </a></li>
+        <li class="text-slate-700 dark:text-slate-200"><a class="hover:underline" rel="noopener noreferer" href="https://dev.to/clintwinter">
+            dev.to
+        </a></li>
+        <li class="text-slate-700 dark:text-slate-200"><a class="hover:underline" rel="noopener noreferer" href="https://www.codementor.io/@clintwinter?refer=badge">
+            <img src="https://www.codementor.io/m-badges/clintwinter/im-a-cm-b.svg" alt="I'm a codementor!" />
+        </a></li>
+    </ul>
+
+    <div class="w-fit">
+        <Theme />
     </div>
 </nav>
+
+<div class="col-span-12 md:hidden flex items-baseline justify-between gap-x-2 p-4">
+    <a class="text-xl font-bold dark:text-white" href="/">Clint Winter</a>
+    <button data-menu-button class="font-semibold cursor-pointer">Menu</button>
+
+    <nav data-mobile-nav class="hidden absolute inset-0 bg-slate-200 dark:bg-slate-900 flex flex-col items-center gap-y-8 p-4">
+        <button data-close-menu-button class="self-end font-semibold cursor-pointer">Close</button>
+
+        <ul class="space-y-2 flex flex-col items-center">
+            <li><a class="text-2xl font-bold dark:text-white" href="/">Clint Winter</a></li>
+            <li><a class="hover:underline text-slate-700 dark:text-slate-200" href="/blog">Blog</a></li>
+            <li><a class="hover:underline text-slate-700 dark:text-slate-200" href="/reading-list">Reading List</a></li>
+        </ul>
+
+        <ul class="space-y-2 flex flex-col items-center">
+            <li class="text-2xl font-bold dark:text-white">Links</li>
+            <li class="text-slate-700 dark:text-slate-200"><a class="hover:underline" rel="noopener noreferer" href="https://github.com/ClintWinter">
+                Github
+            </a></li>
+            <li class="text-slate-700 dark:text-slate-200"><a class="hover:underline" rel="noopener noreferer" href="https://linkedin.com/clint-winter">
+                LinkedIn
+            </a></li>
+            <li class="text-slate-700 dark:text-slate-200"><a class="hover:underline" rel="noopener noreferer" href="https://twitter.com/clintwinter13">
+                Twitter
+            </a></li>
+            <li class="text-slate-700 dark:text-slate-200"><a class="hover:underline" rel="noopener noreferer" href="/assets/ClintWinterResume.pdf">
+                Resume
+            </a></li>
+            <li class="text-slate-700 dark:text-slate-200"><a class="hover:underline" rel="noopener noreferer" href="https://dev.to/clintwinter">
+                dev.to
+            </a></li>
+            <li class="text-slate-700 dark:text-slate-200"><a class="hover:underline" rel="noopener noreferer" href="https://www.codementor.io/@clintwinter?refer=badge">
+                <img src="https://www.codementor.io/m-badges/clintwinter/im-a-cm-b.svg" alt="I'm a codementor!" />
+            </a></li>
+        </ul>
+
+        <div class="w-fit">
+            <Theme />
+        </div>
+    </nav>
+</div>
+
+<script>
+    const elMenuBtn = document.querySelector('[data-menu-button]');
+    const elCloseMenuBtn = document.querySelector('[data-close-menu-button]');
+    const elNav = document.querySelector('[data-mobile-nav]');
+
+    elMenuBtn?.addEventListener('click', () => elNav?.classList.toggle('hidden'));
+    elCloseMenuBtn?.addEventListener('click', () => elNav?.classList.toggle('hidden'));
+</script>
