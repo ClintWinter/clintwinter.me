@@ -4,6 +4,8 @@ import torchlight from 'remark-torchlight';
 
 // https://astro.build/config
 export default defineConfig({
+    site: 'https://fresh.clintwinter.me',
+
     integrations: [tailwind()],
 
     markdown: {
