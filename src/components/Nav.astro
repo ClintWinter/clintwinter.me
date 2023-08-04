@@ -1,38 +1,52 @@
 ---
+import NavLink from "./NavLink.astro";
 import Theme from "./Theme.astro";
 ---
 
-<nav class="h-screen overflow-y-scroll col-span-3 xl:col-span-2 hidden md:flex flex-col gap-y-8 bg-slate-200 shadow-inner dark:bg-slate-900 p-6">
+<nav class="h-screen overflow-y-scroll col-span-3 xl:col-span-2 2xl:col-span-1 hidden md:flex flex-col gap-y-8 bg-slate-200 shadow-inner dark:bg-slate-900 p-6">
     <a href="/">
         <img class="rounded-full dark:shadow-inner" src="/assets/avatar.jpeg" alt="Profile avatar" />
     </a>
 
     <ul class="space-y-2">
         <li><a class="text-2xl font-bold dark:text-white" href="/">Clint Winter</a></li>
-        <li><a class="hover:underline text-slate-700 dark:text-slate-200" href="/blog">Blog</a></li>
-        <li><a class="hover:underline text-slate-700 dark:text-slate-200" href="/reading-list">Reading List</a></li>
+        <!-- <li><a class="hover:underline text-slate-700 dark:text-slate-200" href="/blog">Blog</a></li> -->
+        <li><NavLink href="/blog">Blog</NavLink></li>
+        <li><NavLink href="/reading-list">Reading List</NavLink></li>
     </ul>
 
     <ul class="space-y-2">
         <li class="text-2xl font-bold dark:text-white">Links</li>
-        <li class="text-slate-700 dark:text-slate-200"><a class="hover:underline" rel="noopener noreferer" href="https://github.com/ClintWinter">
-            Github
-        </a></li>
-        <li class="text-slate-700 dark:text-slate-200"><a class="hover:underline" rel="noopener noreferer" href="https://linkedin.com/clint-winter">
-            LinkedIn
-        </a></li>
-        <li class="text-slate-700 dark:text-slate-200"><a class="hover:underline" rel="noopener noreferer" href="https://twitter.com/clintwinter13">
-            Twitter
-        </a></li>
-        <li class="text-slate-700 dark:text-slate-200"><a class="hover:underline" rel="noopener noreferer" href="/assets/ClintWinterResume.pdf">
-            Resume
-        </a></li>
-        <li class="text-slate-700 dark:text-slate-200"><a class="hover:underline" rel="noopener noreferer" href="https://dev.to/clintwinter">
-            dev.to
-        </a></li>
-        <li class="text-slate-700 dark:text-slate-200"><a class="hover:underline" rel="noopener noreferer" href="https://www.codementor.io/@clintwinter?refer=badge">
-            <img src="https://www.codementor.io/m-badges/clintwinter/im-a-cm-b.svg" alt="I'm a codementor!" />
-        </a></li>
+        <li class="text-slate-700 dark:text-slate-200">
+            <NavLink rel="noopener noreferer" href="https://github.com/ClintWinter">
+                Github
+            </NavLink>
+        </li>
+        <li class="text-slate-700 dark:text-slate-200">
+            <NavLink rel="noopener noreferer" href="https://linkedin.com/clint-winter">
+                LinkedIn
+            </NavLink>
+        </li>
+        <li class="text-slate-700 dark:text-slate-200">
+            <NavLink rel="noopener noreferer" href="https://twitter.com/clintwinter13">
+                Twitter
+            </NavLink>
+        </li>
+        <li class="text-slate-700 dark:text-slate-200">
+            <NavLink rel="noopener noreferer" href="/assets/ClintWinterResume.pdf">
+                Resume
+            </NavLink>
+        </li>
+        <li class="text-slate-700 dark:text-slate-200">
+            <NavLink rel="noopener noreferer" href="https://dev.to/clintwinter">
+                dev.to
+            </NavLink>
+        </li>
+        <li class="text-slate-700 dark:text-slate-200">
+            <a rel="noopener noreferer" href="https://www.codementor.io/@clintwinter?refer=badge">
+                <img src="https://www.codementor.io/m-badges/clintwinter/im-a-cm-b.svg" alt="I'm a codementor!" />
+            </a>
+        </li>
     </ul>
 
     <div class="w-fit">
