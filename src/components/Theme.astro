@@ -59,11 +59,13 @@
     return darkModePreference.matches ? 'dark' : 'light';
   })();
 
-  if (theme === 'light') {
-    document.documentElement.classList.remove('dark');
-  } else {
-    document.documentElement.classList.add('dark');
-  }
+    if (theme === 'system') {
+      darkModePreference.matches ? document.documentElement.classList.add('dark') : document.documentElement.classList.remove('dark');
+    } else if (theme === 'dark') {
+      document.documentElement.classList.add('dark');
+    } else {
+      document.documentElement.classList.remove('dark');
+    }
 
   const handleCycleTheme = (e) => {
     const element = document.documentElement;

@@ -95,6 +95,10 @@ const { frontmatter } = Astro.props;
     @apply text-lg font-bold leading-none pt-6;
 }
 
+.post-container :global(h4) {
+    @apply text-base font-bold leading-none pt-6;
+}
+
 /* CODE */
 .post-container :global(pre) {
     @apply p-4 rounded overflow-x-auto text-xs sm:text-sm md:text-base;
