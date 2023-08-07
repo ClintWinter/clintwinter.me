@@ -471,7 +471,7 @@ If we don't use the `www-data:www-data` user/group, we are likely to hit a permi
 
 ### Laravel project setup
 
-Next we need to setup our actual Laravel application.
+Next we need to set up our actual Laravel application.
 
 #### Composer
 
@@ -481,7 +481,7 @@ First, we need to install [composer](https://getcomposer.org/download/). Follow 
 * `mv composer.phar .local/bin/composer`
 * Use `vim .bashrc` to add the line `export PATH="$PATH:$HOME/.local/bin"`
 * `source .bashrc` to reload the config
-* `composer` to see if compose is now an accessible command
+* `composer` to see if composer is now an accessible command
 
 Before we install with composer, there's another PHP extension that is useful:
 
