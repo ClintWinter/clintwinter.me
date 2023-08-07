@@ -20,7 +20,7 @@ const { frontmatter } = Astro.props;
 }
 
 .post-container :global(pre.torchlight) {
-    @apply !bg-slate-900;
+    @apply !bg-slate-950;
 }
 
 .post-container > :global(*) {
@@ -79,7 +79,7 @@ const { frontmatter } = Astro.props;
 }
 
 :global(.dark) .post-container :global(blockquote) {
-    @apply p-4 border-l-8 border-sky-500 bg-slate-700 rounded shadow;
+    @apply p-4 border-l-8 border-sky-500 bg-slate-800 rounded shadow;
 }
 
 /* HEADINGS */
@@ -105,11 +105,11 @@ const { frontmatter } = Astro.props;
 }
 
 .post-container :global(:not(pre) code) {
-    @apply bg-slate-300 text-sky-700 px-1 rounded;
+    @apply text-purple-700 px-1 rounded;
 }
 
 :global(.dark) .post-container :global(:not(pre) code) {
-    @apply bg-slate-700 text-sky-200 px-1 rounded;
+    @apply bg-transparent text-purple-300 px-1 rounded;
 }
 
 /* TABLES */
