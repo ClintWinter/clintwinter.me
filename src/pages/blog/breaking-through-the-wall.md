@@ -21,6 +21,8 @@ Maybe the walls aren't around what we want to do. Maybe the walls are around our
 
 I'd like to end on a positive note. Walls are meant to be broken (or is it rules?). Every time we break one down we get stronger, and the next wall doesn't look as scary. There are all different kinds of walls, I just so happened to speak about my biggest wall. This can be different for you. 
 
-I'm challenging you to take a minute and think: \n> ## What walls are stopping you from doing what you like? What are the underlying insecurities you need to face to grow into the person you know you want to be?
+I'm challenging you to take a minute and think: 
+
+> What walls are stopping you from doing what you like? What are the underlying insecurities you need to face to grow into the person you know you want to be?
 
 This got self-helpy rather quickly, so I'm going to quit while I'm ahead. This is me breaking through my wall, now it's your turn.
