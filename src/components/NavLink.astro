@@ -2,34 +2,6 @@
 const props = Astro.props;
 ---
 
-<a 
-    {...props} 
-    class="inline-block w-full text-slate-700 dark:text-slate-200 -ml-2 px-2 py-1"
->
+<a {...props} class="rounded inline-block w-full text-slate-700 dark:text-slate-200 hover:bg-slate-200 dark:hover:bg-slate-800 transition-colors duration-150 -ml-2 px-2 py-1">
     <slot />
 </a>
-
-<style>
-a {
-    z-index: 0;
-    position: relative;
-}
-
-a::before {
-    @apply bg-gradient-to-r from-sky-300 to-transparent;
-    content: '';
-    clip-path: inset(0 100% 0 0);
-    position: absolute;
-    inset: 0;
-    transition: clip-path 250ms ease-in-out;
-    z-index: -1;
-}
-
-:global(.dark) a::before {
-    @apply bg-gradient-to-r from-sky-700 to-transparent;
-}
-
-a:is(:hover, :focus)::before {
-    clip-path: inset(0);
-}
-</style>
