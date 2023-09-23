@@ -1,7 +1,7 @@
 ---
 const props = Astro.props;
 ---
-<a {...props} class="font-semibold bg-clip-text text-transparent bg-gradient-to-r from-sky-500 to-green-500"><slot /></a
+<a {...props} class="font-semibold bg-clip-text text-transparent bg-gradient-to-r from-violet-500 to-green-500"><slot /></a
 
 ><style>
 a {
@@ -9,7 +9,7 @@ a {
 }
 
 a::before {
-    @apply bg-gradient-to-r from-sky-500 to-green-500 h-1;
+    @apply bg-gradient-to-r from-violet-500 to-green-500 h-1;
     content: '';
     clip-path: inset(0 100% 0 0);
     position: absolute;

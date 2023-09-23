@@ -8,9 +8,9 @@ import '@fontsource/ibm-plex-sans/500-italic.css';
 import '@fontsource/ibm-plex-sans/700-italic.css';
 import '@fontsource/iosevka';
 import '@fontsource/iosevka/400-italic.css';
-import Footer from "../components/Footer.astro";
+import Footer2 from "../components/Footer2.astro";
 import '../styles/style.css';
-const { title } = Astro.props;
+const { title, showFooter = true } = Astro.props;
 ---
 
 <html lang="en">
@@ -21,12 +21,14 @@ const { title } = Astro.props;
 	<meta name="generator" content={Astro.generator} />
 	<title>{title}</title>
 </head>
-<body class="max-h-screen font-sans text-base md:text-lg bg-slate-50 text-slate-800 dark:bg-slate-900 dark:text-slate-100 grid grid-cols-12">
+<body class="font-sans text-base md:text-lg bg-stone-50 text-stone-800 dark:bg-stone-950 dark:text-stone-200 min-h-screen flex flex-col">
 	<Nav />
 
-	<main class="p-4 md:p-8 md:py-12 col-span-12 md:col-span-9 xl:col-span-10 2xl:col-span-11 md:max-h-screen md:overflow-y-auto">
+	<main class="p-4 pt-20 md:px-8 md:pb-12 md:pt-32 flex-grow">
 		<slot />
 	</main>
+
+	{showFooter && <Footer2 />}
 
 	<script src="https://cdn.usefathom.com/script.js" data-site="POEWOFVX" defer></script>
 </body>

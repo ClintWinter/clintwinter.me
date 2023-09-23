@@ -25,7 +25,7 @@ const posts = (await Astro.glob<Frontmatter>('./blog/*.md'))
         <ul class="max-w-prose space-y-4 md:space-y-8">
             {posts.map((post) => (
                 <li>
-                    <a class="mb-2 font-semibold text-lg md:text-xl text-sky-600 dark:text-sky-400 leading-tight hover:underline" href={post.url}>
+                    <a class="mb-2 font-semibold text-lg md:text-xl text-violet-600 dark:text-violet-400 leading-tight hover:underline" href={post.url}>
                         {post.frontmatter.title}
                     </a>
 
