@@ -1,26 +1,29 @@
 ---
+import { DateTime } from 'luxon';
 import MainLayout from "./MainLayout.astro";
+import { guessDateFormat } from '../utils/dates';
+
 const { frontmatter } = Astro.props;
 ---
 
 <MainLayout title={`Clint Winter | ${frontmatter.title}`}>
-    <main class="max-w-prose mx-auto md:px-2 text-nord-n-600 dark:text-nord-s-300">
-        <h1 class="text-2xl md:text-3xl leading-none font-semibold mb-4">{frontmatter.title}</h1>
-        <p class="mb-8">{new Date(frontmatter.publishedAt).toDateString()}</p>
+    <main class="-mx-4 md:mx-auto md:px-2 text-nord-n-600 dark:text-nord-s-300">
+        <article class="post-container text-lg leading-relaxed grid grid-cols-[1fr_min(75ch,_100%)_1fr] p-4">
+            <h1 class="title">{frontmatter.title}</h1>
+            <p class="date">{guessDateFormat(frontmatter.publishedAt).toLocaleString(DateTime.DATE_FULL)}</p>
 
-        <article class="post-container text-lg leading-relaxed">
             <slot />
         </article>
     </main>
 </MainLayout>
 
 <style>
-.post-container {
-    @apply text-lg leading-relaxed;
+.post-container .date {
+    @apply text-stone-500 dark:text-stone-300;
 }
 
 .post-container > :global(*) {
-    @apply mb-6;
+    @apply mb-6 col-start-2 col-span-1;
 }
 
 .post-container :global(img) {
@@ -28,36 +31,46 @@ const { frontmatter } = Astro.props;
 }
 
 /* LISTS */
-.post-container :global(ol) {
-    @apply list-decimal ml-8 my-8;
+.post-container :global(ol),
+.post-container :global(* ol) {
+    @apply list-decimal ml-8 list-outside;
 }
 
 .post-container :global(* ol) {
-    @apply list-decimal ml-8 my-2;
+    @apply mt-6;
 }
 
-.post-container :global(ol li:not(:last-child)) {
-    @apply mb-2;
+.post-container :global(ol li) {
+    @apply pl-2;
 }
 
-.post-container :global(li::marker) {
-    @apply font-bold text-stone-500;
-}
-
-.post-container :global(ul) {
-    @apply list-disc ml-8 my-8;
-}
-
-.post-container :global(* ul) {
-    @apply list-disc ml-8 my-2;
-}
-
-.post-container :global(ul li:not(:last-child)) {
+.post-container :global(li:not(:last-child)) {
     @apply mb-2;
 }
 
 .post-container :global(li *:not(:last-child)) {
     @apply mb-2;
+}
+
+.post-container :global(* ul) {
+    @apply mt-6;
+}
+
+.post-container :global(ul li) {
+    @apply relative ml-10 -z-10;
+}
+
+.post-container :global(ul li:before) {
+    content: '';
+    display: block;
+    background-image: url(/assets/arrow-right.svg);
+    width: 1.5rem;
+    height: 1.5rem;
+    margin-right: 0.5rem;
+    position: absolute;
+    top: 0.2rem;
+    left: -2rem;
+    flex-shrink: 0;
 }
 
 /* LINKS */
@@ -75,12 +88,16 @@ const { frontmatter } = Astro.props;
 }
 
 :global(.dark) .post-container :global(blockquote) {
-    @apply p-4 border-l-8 border-violet-500 bg-stone-800 rounded shadow;
+    @apply p-4 border-l-8 border-violet-500 bg-stone-800 rounded shadow text-stone-200;
 }
 
 /* HEADINGS */
+.post-container :global(h1:first-of-type) {
+    @apply text-3xl md:text-7xl leading-none font-semibold mb-4;
+}
+
 .post-container :global(h1) {
-    @apply text-3xl font-bold leading-none pt-6;
+    @apply text-3xl leading-none font-bold mb-4;
 }
 
 .post-container :global(h2) {
@@ -91,13 +108,22 @@ const { frontmatter } = Astro.props;
     @apply text-lg font-bold leading-none pt-6;
 }
 
+:global(.dark) .post-container :global(h1) {
+    @apply text-stone-100;
+}
+
+:global(.dark) .post-container :global(h2),
+:global(.dark) .post-container :global(h3) {
+    @apply text-stone-200;
+}
+
 .post-container :global(h4) {
     @apply text-base font-bold leading-none pt-6;
 }
 
 /* CODE */
 .post-container :global(pre) {
-    @apply p-4 rounded overflow-x-auto text-xs sm:text-sm md:text-base;
+    @apply p-4 md:rounded overflow-x-auto text-xs sm:text-sm md:text-base -mx-4 md:mx-0;
 }
 
 .post-container :global(pre .line-number) {

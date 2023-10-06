@@ -38,11 +38,12 @@
 </style>
 
 <script>
-  type Theme = 'system' | 'dark' | 'light';
+  type ThemePreference = 'system' | 'dark' | 'light';
+  type Theme = 'dark' | 'light';
 
-  localStorage.setItem("theme", localStorage.getItem('theme') ?? 'system');
-  document.querySelectorAll('[data-theme-toggle]')
-    .forEach(el => el.setAttribute('data-theme-toggle', localStorage.getItem('theme') as Theme));
+  if (!localStorage.getItem('theme')) {
+    localStorage.setItem('theme', 'system');
+  }
 
   const cycle = {
     system: 'dark',
@@ -50,6 +51,11 @@
     light: 'system',
   };
   const darkModePreference = window.matchMedia("(prefers-color-scheme: dark)");
+
+  localStorage.setItem("theme", localStorage.getItem('theme') ?? 'system');
+  document.querySelectorAll('[data-theme-toggle]')
+    .forEach(el => el.setAttribute('data-theme-toggle', localStorage.getItem('theme') as Theme));
+
 
   const theme = (() => {
     if (typeof localStorage !== 'undefined' && localStorage.getItem('theme')) {

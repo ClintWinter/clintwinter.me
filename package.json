@@ -19,6 +19,7 @@
     "@fontsource/iosevka": "^5.0.6",
     "@fontsource/jetbrains-mono": "^4.5.12",
     "astro": "^2.10.1",
+    "luxon": "^3.4.3",
     "postcss": "^8.4.27",
     "remark-torchlight": "https://github.com/torchlight-api/remark-torchlight/archive/refs/tags/v0.0.3.tar.gz",
     "tailwindcss": "^3.3.3"

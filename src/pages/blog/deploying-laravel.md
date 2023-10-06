@@ -120,7 +120,7 @@ Typically, installing a PPA happens in 3 steps:
 4. `which php`  should output `/usr/bin/php` and `php -v` should give you `PHP 8.2.X`
 
 Here's the list of dependencies from the laravel site:
-* PHP >= 8.1 - we just installed it
+* PHP >= 8.1 - we just installed it PHP >= 8.1 - we just installed itPHP >= 8.1 - we just installed itPHP >= 8.1 - we just installed itPHP >= 8.1 - we just installed itPHP >= 8.1 - we just installed itPHP >= 8.1 - we just installed itPHP >= 8.1 - we just installed itPHP >= 8.1 - we just installed itPHP >= 8.1 - we just installed itPHP >= 8.1 - we just installed it
 * Ctype PHP Extension
 * cURL PHP Extension
 * DOM PHP Extension

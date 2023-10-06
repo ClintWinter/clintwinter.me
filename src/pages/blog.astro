@@ -8,9 +8,9 @@ interface Frontmatter {
     updatedAt?: string;
 }
 
-import type { MarkdownInstance } from "astro";
+import { DateTime } from "luxon";
 import MainLayout from "../layouts/MainLayout.astro";
-
+import { guessDateFormat } from "../utils/dates";
 
 const posts = (await Astro.glob<Frontmatter>('./blog/*.md'))
     .filter((post) => post.frontmatter.publishedAt)
@@ -30,7 +30,7 @@ const posts = (await Astro.glob<Frontmatter>('./blog/*.md'))
                     </a>
 
                     <p class="text-sm text-slate-500">
-                        {new Date(post.frontmatter?.publishedAt).toLocaleDateString()}
+                        {guessDateFormat(post.frontmatter.publishedAt!).toLocaleString(DateTime.DATE_MED)}
                     </p>
                 </li>
             ))}
