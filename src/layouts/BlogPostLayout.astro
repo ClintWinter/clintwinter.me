@@ -10,7 +10,7 @@ const { frontmatter } = Astro.props;
     <main class="-mx-4 md:mx-auto md:px-2 text-nord-n-600 dark:text-nord-s-300">
         <article class="post-container text-lg leading-relaxed grid grid-cols-[1fr_min(75ch,_100%)_1fr] p-4">
             <h1 class="title">{frontmatter.title}</h1>
-            <p class="date">{guessDateFormat(frontmatter.publishedAt).toLocaleString(DateTime.DATE_FULL)}</p>
+            {!!frontmatter.publishedAt && <p class="date">{guessDateFormat(frontmatter.publishedAt).toLocaleString(DateTime.DATE_FULL)}</p>}
 
             <slot />
         </article>
