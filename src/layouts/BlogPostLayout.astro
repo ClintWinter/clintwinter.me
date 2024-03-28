@@ -7,7 +7,7 @@ const { frontmatter } = Astro.props;
 ---
 
 <MainLayout title={`Clint Winter | ${frontmatter.title}`}>
-    <main class="w-full max-w-prose mx-auto md:px-4">
+    <main class="w-full max-w-prose mx-auto md:p-4">
         <article class="post-container text-lg leading-relaxed grid grid-cols-[1fr_min(75ch,_100%)_1fr]">
             <h1 class="title">{frontmatter.title}</h1>
             {!!frontmatter.publishedAt && <p class="date">{guessDateFormat(frontmatter.publishedAt).toLocaleString(DateTime.DATE_FULL)}</p>}
