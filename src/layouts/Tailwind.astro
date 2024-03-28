@@ -1,0 +1,36 @@
+---
+import '@fontsource/spectral/400.css';
+import '@fontsource/spectral/600.css';
+import '@fontsource/spectral/800.css';
+import '@fontsource/spectral/400-italic.css';
+import '../styles/style.css';
+---
+
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+	<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+	<meta name="viewport" content="width=device-width" />
+	<meta name="generator" content={Astro.generator} />
+	<title>Clint Winter | Tailwind Application</title>
+</head>
+<body class="bg-zinc-50 text-zinc-800 font-serif p-2">
+    <main class="prose mx-auto py-12">
+        <p class="text-zinc-400">Clint x Tailwind</p>
+
+        <slot />
+    </main>
+
+    <script src="https://cdn.usefathom.com/script.js" data-site="POEWOFVX" defer></script>
+</body>
+</html>
+
+<style>
+    .prose :global(*) {
+        @apply text-lg;
+    }
+
+    .prose :global(a) {
+        @apply text-blue-500 visited:text-purple-700;
+    }
+</style>
