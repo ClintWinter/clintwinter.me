@@ -76,6 +76,4 @@ I sometimes daydream about making a career pivot to design. My ability to create
 
 <hr>
 
-I hope this isn't a "too long; didn't read" situation. I tried to keep it as short as I could. There's plenty more to talk about, but if you aren't interested at this point then there's no reason to keep talking.
-
 Best of luck with your search, and I hope to hear from you!
