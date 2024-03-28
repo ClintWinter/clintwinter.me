@@ -18,16 +18,16 @@ const latestPosts = (await Astro.glob<Frontmatter>('./blog/*.md'))
 ---
 
 <MainLayout title="Clint Winter">
-    <main class="max-w-5xl mx-auto md:p-4 space-y-16 rounded-sm">
-        <section >
-            <h2 class="mb-6 font-bold text-3xl text-stone-600 dark:text-stone-300">Latest Posts</h2>
+    <main class="w-full max-w-prose mx-auto md:p-4 space-y-16 rounded-sm">
+        <section>
+            <h2 class="mb-6 font-semibold text-xl text-stone-600 dark:text-stone-300">Latest Posts</h2>
             <ul class="space-y-10">
             {latestPosts.map((post) => (
-                <li class="text-lg md:text-xl">
-                    <a class="font-semibold text-violet-600 dark:text-violet-400 hover:underline" href={post.url}>
+                <li class="text-lg">
+                    <a class="font-semibold text-blue-600 visited:text-purple-700 dark:text-blue-500 dark:visited:text-purple-500 underline" href={post.url}>
                         {post.frontmatter.title}
                     </a>
-                    <p class="text-nord-a-300 opacity-70 text-sm">
+                    <p class="text-nord-a-300 opacity-70 text-base">
                         {new Date(post.frontmatter?.publishedAt).toLocaleDateString()}
                     </p>
                 </li>

@@ -7,8 +7,8 @@ const { frontmatter } = Astro.props;
 ---
 
 <MainLayout title={`Clint Winter | ${frontmatter.title}`}>
-    <main class="-mx-4 md:mx-auto md:px-2 text-nord-n-600 dark:text-nord-s-300">
-        <article class="post-container text-lg leading-relaxed grid grid-cols-[1fr_min(75ch,_100%)_1fr] p-4">
+    <main class="w-full max-w-prose mx-auto md:px-4">
+        <article class="post-container text-lg leading-relaxed grid grid-cols-[1fr_min(75ch,_100%)_1fr]">
             <h1 class="title">{frontmatter.title}</h1>
             {!!frontmatter.publishedAt && <p class="date">{guessDateFormat(frontmatter.publishedAt).toLocaleString(DateTime.DATE_FULL)}</p>}
 
@@ -19,7 +19,7 @@ const { frontmatter } = Astro.props;
 
 <style>
 .post-container .date {
-    @apply text-stone-500 dark:text-stone-300;
+    @apply text-sm text-stone-500 dark:text-stone-300;
 }
 
 .post-container > :global(*) {
@@ -75,11 +75,11 @@ const { frontmatter } = Astro.props;
 
 /* LINKS */
 .post-container :global(a) {
-    @apply break-words text-violet-600 font-semibold hover:underline;
+    @apply break-words text-blue-600 visited:text-purple-700 font-semibold underline;
 }
 
 :global(.dark) .post-container :global(a) {
-    @apply text-violet-400 font-semibold hover:underline;
+    @apply text-blue-500 visited:text-purple-500 font-semibold underline;
 }
 
 /* QUOTES */
@@ -93,32 +93,39 @@ const { frontmatter } = Astro.props;
 
 /* HEADINGS */
 .post-container :global(h1:first-of-type) {
-    @apply text-3xl md:text-7xl leading-none font-semibold mb-4;
+    @apply text-xl leading-none font-bold mb-4;
 }
 
 .post-container :global(h1) {
-    @apply text-3xl leading-none font-bold mb-4;
-}
-
-.post-container :global(h2) {
-    @apply text-2xl font-bold leading-none pt-6;
-}
-
-.post-container :global(h3) {
-    @apply text-lg font-bold leading-none pt-6;
+    @apply text-xl leading-none font-semibold mb-4;
 }
 
 :global(.dark) .post-container :global(h1) {
     @apply text-stone-100;
 }
 
-:global(.dark) .post-container :global(h2),
-:global(.dark) .post-container :global(h3) {
+.post-container :global(h2) {
+    @apply text-lg font-semibold leading-none pt-6;
+}
+
+:global(.dark) .post-container :global(h2) {
     @apply text-stone-200;
 }
 
+.post-container :global(h3) {
+    @apply text-base font-semibold uppercase text-stone-500 leading-none pt-6;
+}
+
+:global(.dark) .post-container :global(h3) {
+    @apply text-stone-400;
+}
+
 .post-container :global(h4) {
-    @apply text-base font-bold leading-none pt-6;
+    @apply text-sm font-semibold text-stone-500 leading-none pt-6;
+}
+
+:global(.dark) .post-container :global(h4) {
+    @apply text-stone-400;
 }
 
 /* CODE */

@@ -4,116 +4,60 @@ import MainLayout from "../layouts/MainLayout.astro";
 ---
 
 <MainLayout title="Clint Winter" showFooter={false}>
-    <div class="hidden max-w-5xl mx-auto sm:p-4 sm:grid grid-cols-12 sm:gap-8 lg:gap-12 xl:gap-20">
-        <aside class="col-span-6 lg:col-span-4">
-            <img class="rounded-lg w-full bg-transparent" src="/assets/avatar.jpg" alt="Profile avatar" />
+    <div class="w-full max-w-prose mx-auto p-4">
+        <section aria-label="About Me">
+            <h1 class="mb-4 text-2xl font-semibold">I'm Clint Winter</h1>
 
+            <img class="w-full sm:w-64 mb-4 sm:mr-4 mt-2 rounded-lg bg-transparent sm:float-left" src="/assets/avatar.jpg" alt="Profile avatar" />
+            <div class="space-y-4">
+                <p class="text-lg leading-relaxed">I'm a seasoned senior full-stack web developer based in New Jersey. My primary focus is on crafting pragmatic solutions that not only get the job done but do so efficiently and elegantly. I firmly believe that perfection, while admirable, should never stand in the way of delivering exceptional results.</p>
+                <p class="text-lg leading-relaxed">My journey in the world of web development began in October 2015 at CWR Electronics, where I honed my skills in JavaScript, jQuery, Bootstrap, CSS, PHP, and MySQL. From there, I continued to evolve, taking on roles at DirectLync, where I worked extensively with PHP, JavaScript, and MySQL, and finally landing at Givebutter in January 2021, where I currently serve as a senior full-stack developer. Laravel and PHP are my forte, and I'm well-versed in React, Typescript, Svelte, and Tailwind CSS as well.</p>
+                <p class="text-lg leading-relaxed">My approach to development is user-centric. I believe in asking the right questions and understanding the unique needs of each project to create solutions that truly resonate with users. Clean code and effective problem-solving are at the core of my work.</p>
+                <p class="text-lg leading-relaxed">Welcome to my corner of the web, where I'll be sharing insights, tips, and projects from my journey in web development.</p>
+            </div>
+        </section>
+        <aside class="col-span-6 lg:col-span-4">
             <div class="pt-8">
                 <ul class="flex flex-col gap-2 text-base">
                     <li>
-                        <a class="group hover:text-violet-500 font-medium" rel="noopener noreferer" href="https://github.com/ClintWinter">
-                            <span class="text-stone-400 group-hover:text-violet-500 font-normal">Follow me on</span>
+                        <a class="group hover:text-blue-500 font-medium" rel="noopener noreferer" href="https://github.com/ClintWinter">
+                            <span class="text-stone-400 group-hover:text-blue-500 font-normal">Follow me on</span>
                             Github
                         </a>
                     </li>
                     <li>
-                        <a class="group hover:text-violet-500 font-medium" rel="noopener noreferer" href="https://linkedin.com/in/clint-winter">
-                            <span class="text-stone-400 group-hover:text-violet-500 font-normal">Connect with me on</span>
+                        <a class="group hover:text-blue-500 font-medium" rel="noopener noreferer" href="https://linkedin.com/in/clint-winter">
+                            <span class="text-stone-400 group-hover:text-blue-500 font-normal">Connect with me on</span>
                             LinkedIn
                         </a>
                     </li>
                     <li>
-                        <a class="group hover:text-violet-500 font-medium" rel="noopener noreferer" href="https://twitter.com/clintwinter13">
-                            <span class="text-stone-400 group-hover:text-violet-500 font-normal">Follow me on</span>
+                        <a class="group hover:text-blue-500 font-medium" rel="noopener noreferer" href="https://twitter.com/clintwinter13">
+                            <span class="text-stone-400 group-hover:text-blue-500 font-normal">Follow me on</span>
                             Twitter
                         </a>
                     </li>
                     <li>
-                        <a class="group hover:text-violet-500 font-medium" rel="noopener noreferer" href="/assets/ClintWinterResume.pdf">
-                            <span class="text-stone-400 group-hover:text-violet-500 font-normal">Read my</span>
+                        <a class="group hover:text-blue-500 font-medium" rel="noopener noreferer" href="/assets/ClintWinterResume.pdf">
+                            <span class="text-stone-400 group-hover:text-blue-500 font-normal">Read my</span>
                             Resume
                         </a>
                     </li>
                     <li>
-                        <a class="group hover:text-violet-500 font-medium" rel="noopener noreferer" href="https://dev.to/clintwinter">
-                            <span class="text-stone-400 group-hover:text-violet-500 font-normal">Follow me on</span>
+                        <a class="group hover:text-blue-500 font-medium" rel="noopener noreferer" href="https://dev.to/clintwinter">
+                            <span class="text-stone-400 group-hover:text-blue-500 font-normal">Follow me on</span>
                             dev.to
                         </a>
                     </li>
                     <li>
-                        <a class="group hover:text-violet-500 font-medium" rel="noopener noreferer" href="https://www.codementor.io/@clintwinter?refer=badge">
-                            <span class="text-stone-400 group-hover:text-violet-500 font-normal">Get coaching on</span>
+                        <a class="group hover:text-blue-500 font-medium" rel="noopener noreferer" href="https://www.codementor.io/@clintwinter?refer=badge">
+                            <span class="text-stone-400 group-hover:text-blue-500 font-normal">Get coaching on</span>
                             codementor.io
                         </a>
                     </li>
                 </ul>
             </div>
         </aside>
-
-        <section aria-label="About Me" class="col-span-6 lg:col-span-8 flex flex-col gap-4">
-            <h1 class="text-4xl font-bold">I'm Clint Winter</h1>
-            <!-- <p class="text-lg md:text-xl leading-relaxed">I'm a software developer at <a class="font-medium text-violet-600 dark:text-violet-400 hover:underline" href="https://givebutter.com/" rel="noreferer noopener">Givebutter</a>. I work with Laravel and React in my daily work. I love learning new programming paradigms and finding ways to incorporate them into my problem-solving toolset.</p> -->
-            <p class="text-lg leading-relaxed">I'm a seasoned senior full-stack web developer based in New Jersey. My primary focus is on crafting pragmatic solutions that not only get the job done but do so efficiently and elegantly. I firmly believe that perfection, while admirable, should never stand in the way of delivering exceptional results.</p>
-            <p class="text-lg leading-relaxed">My journey in the world of web development began in October 2015 at CWR Electronics, where I honed my skills in JavaScript, jQuery, Bootstrap, CSS, PHP, and MySQL. From there, I continued to evolve, taking on roles at DirectLync, where I worked extensively with PHP, JavaScript, and MySQL, and finally landing at Givebutter in January 2021, where I currently serve as a senior full-stack developer. Laravel and PHP are my forte, and I'm well-versed in React, Typescript, Svelte, and Tailwind CSS as well.</p>
-            <p class="text-lg leading-relaxed">My approach to development is user-centric. I believe in asking the right questions and understanding the unique needs of each project to create solutions that truly resonate with users. Clean code and effective problem-solving are at the core of my work.</p>
-            <p class="text-lg leading-relaxed">Welcome to my corner of the web, where I'll be sharing insights, tips, and projects from my journey in web development.</p>
-        </section>
-    </div>
-
-    <div class="flex flex-col sm:hidden gap-8 p-4">
-        <div>
-            <img class="rounded-lg w-full bg-transparent" src="/assets/avatar.jpg" alt="Profile avatar" />
-        </div>
-
-        <section aria-label="About Me" class="flex flex-col gap-4">
-            <h1 class="text-3xl font-bold mb-4">I'm Clint Winter</h1>
-            <!-- <p class="text-base leading-relaxed">I'm a software developer at <a class="font-medium text-violet-600 dark:text-violet-400 hover:underline" href="https://givebutter.com/" rel="noreferer noopener">Givebutter</a>. I work with Laravel and React in my daily work. I love learning new programming paradigms and finding ways to incorporate them into my problem-solving toolset.</p> -->
-            <p class="text-base leading-relaxed">I'm a seasoned senior full-stack web developer based in New Jersey. My primary focus is on crafting pragmatic solutions that not only get the job done but do so efficiently and elegantly. I firmly believe that perfection, while admirable, should never stand in the way of delivering exceptional results.</p>
-            <p class="text-base leading-relaxed">My journey in the world of web development began in October 2015 at CWR Electronics, where I honed my skills in JavaScript, jQuery, Bootstrap, CSS, PHP, and MySQL. From there, I continued to evolve, taking on roles at DirectLync, where I worked extensively with PHP, JavaScript, and MySQL, and finally landing at Givebutter in January 2021, where I currently serve as a senior full-stack developer. Laravel and PHP are my forte, and I'm well-versed in React, Typescript, Svelte, and Tailwind CSS as well.</p>
-            <p class="text-base leading-relaxed">My approach to development is user-centric. I believe in asking the right questions and understanding the unique needs of each project to create solutions that truly resonate with users. Clean code and effective problem-solving are at the core of my work.</p>
-            <p class="text-base leading-relaxed">Welcome to my corner of the web, where I'll be sharing insights, tips, and projects from my journey in web development.</p>
-        </section>
-
-        <div>
-            <ul class="flex flex-col gap-2 text-base">
-                <li>
-                    <a class="group hover:text-violet-500 font-medium" rel="noopener noreferer" href="https://github.com/ClintWinter">
-                        <span class="text-stone-400 group-hover:text-violet-500 font-normal">Follow me on</span>
-                        Github
-                    </a>
-                </li>
-                <li>
-                    <a class="group hover:text-violet-500 font-medium" rel="noopener noreferer" href="https://linkedin.com/in/clint-winter">
-                        <span class="text-stone-400 group-hover:text-violet-500 font-normal">Connect with me on</span>
-                        LinkedIn
-                    </a>
-                </li>
-                <li>
-                    <a class="group hover:text-violet-500 font-medium" rel="noopener noreferer" href="https://twitter.com/clintwinter13">
-                        <span class="text-stone-400 group-hover:text-violet-500 font-normal">Follow me on</span>
-                        Twitter
-                    </a>
-                </li>
-                <li>
-                    <a class="group hover:text-violet-500 font-medium" rel="noopener noreferer" href="/assets/ClintWinterResume.pdf">
-                        <span class="text-stone-400 group-hover:text-violet-500 font-normal">Read my</span>
-                        Resume
-                    </a>
-                </li>
-                <li>
-                    <a class="group hover:text-violet-500 font-medium" rel="noopener noreferer" href="https://dev.to/clintwinter">
-                        <span class="text-stone-400 group-hover:text-violet-500 font-normal">Follow me on</span>
-                        dev.to
-                    </a>
-                </li>
-                <li>
-                    <a class="group hover:text-violet-500 font-medium" rel="noopener noreferer" href="https://www.codementor.io/@clintwinter?refer=badge">
-                        <span class="text-stone-400 group-hover:text-violet-500 font-normal">Get coaching on</span>
-                        codementor.io
-                    </a>
-                </li>
-            </ul>
-        </div>
     </div>
 </MainLayout>
 

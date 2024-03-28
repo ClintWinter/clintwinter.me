@@ -9,9 +9,12 @@ module.exports = {
             fontFamily: {
                 'display': ['IBM Plex Sans', ...defaultTheme.fontFamily.serif],
                 'sans': ['IBM Plex Sans', ...defaultTheme.fontFamily.sans],
+                'serif': ['Spectral', ...defaultTheme.fontFamily.serif],
                 'mono': ['Iosevka', ...defaultTheme.fontFamily.mono],
             },
         },
     },
-    plugins: [],
+    plugins: [
+        require('@tailwindcss/typography'),
+    ],
 }
