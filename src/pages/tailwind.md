@@ -4,14 +4,6 @@ layout: '../layouts/Tailwind.astro'
 
 #### Hey Adam 🤝
 
-I just want to preface with the fact that I do not believe myself to be an even remotely qualified candidate. However, I love Tailwind, I've enjoyed your content for a long time, and I want to try anyway. Seems like I'm not the only one who is intimidated by the role:
-
-<blockquote class="twitter-tweet"><p lang="en" dir="ltr">Surprisingly getting fewer applicants for these roles than we did when we were hiring at less than half the salary back in 2020 before we had the budget we have now.<br><br>Would love any feedback on what we could improve here 🤔 <a href="https://t.co/5FapZXiUw1">https://t.co/5FapZXiUw1</a></p>&mdash; Adam Wathan (@adamwathan) <a href="https://twitter.com/adamwathan/status/1773341818773540949?ref_src=twsrc%5Etfw">March 28, 2024</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-
-I almost abandoned this application, but seeing your tweet made me realize I should submit this.
-
-<hr>
-
 I'm happy to be applying to your *Staff Software Engineer* role! I believe that I have the right personality for this type of role because I've always enjoyed and appreciated design without being a designer.
 
 Some fun facts about me that are Tailwind/Adam related...
@@ -68,7 +60,7 @@ and
 
 **You’re fanatical about polish**
 
-This is a tough one because working at a startup like mine means we have to ship. It's probably a good thing because I am prone to spending a lot of time on something small. Working at a place aligns with my personality in that way sounds like a dream.
+This is a tough one because working at a startup like mine means we have to ship. It's probably a good thing because I am prone to spending a lot of time on something small. Working at a place that aligns with my personality in that way sounds like a dream.
 
 **You love great design.**
 
