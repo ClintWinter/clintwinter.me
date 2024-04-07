@@ -43,7 +43,7 @@ I've been entrusted with these critical input/output flows that allow potential 
 
 #### A few more tidbits
 
-* **I rise to the occassion.** I was the first full-time developer hired at my current startup, and I went from using Laravel for the first time professionally, to a senior developer and considered one of the most adept on the team.
+* **I rise to the occasion.** I was the first full-time developer hired at my current startup, and I went from using Laravel for the first time professionally, to a senior developer and considered one of the most adept on the team.
 * **I enjoy good design.** I'm sure you noticed, but I ripped off the Laravel documentation when making this page. I've often been complimented by designers on my ability to accurately bring their vision to life.
 * **I care more than to just "get it done".** This is harder to get away with at a startup like mine (although I've always been able to respect this balance). To me, too much "science"-ifying destroys the magic of programming. It's similar to writing. I want it to flow well. To be simple, without excessive flourish. Intuitive. Unambiguous.
 -----
