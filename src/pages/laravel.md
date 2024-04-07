@@ -48,7 +48,7 @@ I've been entrusted with these critical input/output flows that allow potential 
 * **I care more than to just "get it done".** This is harder to get away with at a startup like mine (although I've always been able to respect this balance). To me, too much "science"-ifying destroys the magic of programming. It's similar to writing. I want it to flow well. To be simple, without excessive flourish. Intuitive. Unambiguous.
 -----
 
-Thank you again for the opportunity—I wish you the best of luck in selecting the most suitable candidates!
+Thank you again for the opportunity—I wish you the best of luck in selecting the most suitable candidates, and I hope to hear from you!
 
 #### Links
 
