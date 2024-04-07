@@ -1,0 +1,60 @@
+---
+import '@fontsource-variable/mulish';
+import '@fontsource-variable/mulish/wght-italic.css';
+import '../styles/style.css';
+---
+
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+	<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+	<meta name="viewport" content="width=device-width" />
+	<meta name="generator" content={Astro.generator} />
+	<title>Clint Winter x Laravel</title>
+</head>
+<body class="bg-gradient-to-br from-[#eb4432] via-[#a51f10] to-[#eb4432] font-laravel p-4 h-screen flex flex-col">
+    <div class="bg-white dark:bg-[#171923] rounded-sm shadow-inner p-8 self-stretch h-full overflow-y-scroll">
+        <main class="max-w-[65ch] w-full mx-auto space-y-5">
+            <slot />
+        </main>
+    </div>
+</body>
+</html>
+
+<style>
+    main :global(*) {
+        @apply text-base font-light text-[#565454] dark:text-[#b5b5bd] leading-relaxed;
+    }
+
+    main :global(strong) {
+        @apply font-bold;
+    }
+
+    main :global(h4) {
+        @apply font-bold text-[#232323] dark:text-[#e7e8f2];
+    }
+
+    main :global(a) {
+        @apply text-[#eb4432] underline;
+    }
+
+    main :global(ul) {
+        @apply list-disc ml-4 list-image-[url(assets/laravel-li.svg)];
+    }
+
+    main :global(code) {
+        @apply bg-[#fbfbfd] text-[#ca473f] dark:bg-[#252a37] dark:text-[#eb4432] text-xs px-0.5 rounded-sm align-middle leading-loose inline-flex;
+    }
+
+    main :global(ul li::marker) {
+        @apply leading-none;
+    }
+
+    main :global(ul li) {
+        @apply mb-2 pl-2;
+    }
+
+    main :global(ul li ul) {
+        @apply mt-2
+    }
+</style>

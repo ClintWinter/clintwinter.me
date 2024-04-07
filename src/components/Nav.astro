@@ -13,20 +13,18 @@ import Theme from "./Theme.astro";
         <li><a class="inline-block p-1 hover:text-stone-200 hover:bg-stone-800 dark:hover:text-stone-800 dark:hover:bg-stone-200" href="/about">About</a></li>
         <li><a class="inline-block p-1 hover:text-stone-200 hover:bg-stone-800 dark:hover:text-stone-800 dark:hover:bg-stone-200"" href="/blog">Blog</a></li>
         <li><a class="inline-block p-1 hover:text-stone-200 hover:bg-stone-800 dark:hover:text-stone-800 dark:hover:bg-stone-200"" href="/reading-list">Reading List</a></li>
-        <Theme />
     </ul>
 
     <button data-menu-button class="block md:hidden font-semibold cursor-pointer">Menu</button>
 </nav>
 
-<nav data-mobile-nav class="hidden fixed inset-0 bg-stone-900/75 flex flex-col p-4 z-10">
+<nav data-mobile-nav class="flex flex-col fixed inset-0 bg-stone-900/75 p-4 z-10">
 
     <ul class="p-8 flex flex-col items-center gap-4 leading-none bg-stone-100 dark:bg-stone-800 border border-stone-200 shadow-lg dark:shadow-none dark:border-stone-700 z-20 rounded-lg">
         <li class="self-end mb-8"><button data-close-menu-button class="font-semibold cursor-pointer">Close</button></li>
         <li><a class="hover:text-violet-500" href="/about">About</a></li>
         <li><a class="hover:text-violet-500" href="/blog">Blog</a></li>
         <li><a class="hover:text-violet-500" href="/reading-list">Reading List</a></li>
-        <Theme />
     </ul>
 </nav>
 
