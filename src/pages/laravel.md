@@ -10,7 +10,7 @@ layout: '../layouts/Laravel.astro'
 
 Hello Laravel hiring team! 👋
 
-I'm **Clint Winter**, a senior full-stack developer at [Givebutter](https://givebutter.com). I'm excited to be applying to your <u>_Senior Full-stack Developer position_</u>. I have been a huge Laravel fan for a while now, so having the opportunity to join the core team means a lot to me.
+I'm **Clint Winter**, a senior full-stack developer at [Givebutter](https://givebutter.com). I'm excited to be applying to your <u>_Senior Full-stack Engineer_</u> position. I have been a huge Laravel fan for a while now, so having the opportunity to join the core team means a lot to me.
 
 #### About Me
 
