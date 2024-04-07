@@ -10,13 +10,13 @@ layout: '../layouts/Laravel.astro'
 
 Hello Laravel hiring team! 👋
 
-I'm **Clint Winter**, a senior full-stack developer at [Givebutter](https://givebutter.com). I'm excited to be applying to your <u>_Senior Full-stack Engineer_</u> position. I have been a huge Laravel fan for a while now, so having the opportunity to join the core team means a lot to me.
+I'm **Clint Winter**, a senior full-stack developer at [Givebutter](https://givebutter.com). I'm excited to be applying to your <u>_Senior Full-stack Engineer_</u> position. I have been a huge Laravel fan for a while now, so having the opportunity to present myself as an applicant means a lot to me.
 
 #### About Me
 
 * I'm totally **self-taught** and have been involved in PHP and, subsequently, Laravel going on 9 years now.
 * I currently work with a Laravel back-end and a React/TypeScript SPA front-end in my daily work.
-* I've been remote most of my career—there would be no adjustment for me to continue doing so.
+* I have worked remotely for most of my career.
 * I'm located in New Jersey, USA, so I'm in the EST/EDT timezone.
 * I use Neovim btw. (Shout-out to Jess Archer and her Laracasts course!)
 
@@ -43,9 +43,10 @@ I've been entrusted with building these critical input/output flows that allow p
 
 #### A few more tidbits
 
-* **I rise to the occasion.** I was the first full-time developer hired at my current startup, and I went from using Laravel for the first time professionally, to a senior developer and considered one of the most adept on the team.
+* **I rise to the occasion.** I was the first full-time developer hired at my company. I went from using Laravel for the first time professionally, to a senior developer and considered one of the most adept on the team.
 * **I enjoy good design.** I'm sure you noticed, but I ripped off the Laravel documentation when making this page. I've often been complimented by designers on my ability to accurately bring their vision to life.
-* **I care more than to just "get it done".** This is harder to get away with at a startup like mine (although I've always been able to respect this balance). To me, too much "science"-ifying destroys the magic of programming. It's similar to writing. I want it to flow well. To be simple, without excessive flourish. Intuitive. Unambiguous.
+* **I sweat the details.** This is harder to get away with at a startup like mine (although I've always been able to respect this balance). To me, too much "science"-ifying destroys the magic of programming. It's similar to writing. I want it to flow well. To be simple, without excessive flourish. Intuitive. Unambiguous.
+
 -----
 
 Thank you again for the opportunity—I wish you the best of luck in selecting the most suitable candidates, and I hope to hear from you!
