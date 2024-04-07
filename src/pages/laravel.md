@@ -2,9 +2,11 @@
 layout: '../layouts/Laravel.astro'
 ---
 
-<p class="text-[#565454] dark:text-white opacity-40">Clint x Laravel</p>
+<div class="mb-5 w-full h-[1px] bg-[#565454] flex items-center justify-center text-[#565454] dark:text-white opacity-60 dark:opacity-100">
+  <p class="bg-white dark:bg-[#171923] pb-0.5 px-4">Clint x Laravel</p>
+</div>
 
-<img alt="profile picture" src="assets/avatar.jpg" class="rounded-lg max-h-40" />
+<img alt="profile picture" src="/assets/avatar.jpg" class="rounded-lg max-h-40" />
 
 Hello Laravel hiring team! 👋
 
@@ -16,6 +18,7 @@ I'm **Clint Winter**, a senior full-stack developer at [Givebutter](https://give
 * I currently work with a Laravel back-end and a React/TypeScript SPA front-end in my daily work.
 * I've been remote most of my career—there would be no adjustment for me to continue doing so.
 * I'm located in New Jersey, USA, so I'm in the EST/EDT timezone.
+* I use Neovim btw. (Shout-out to Jess Archer and her Laracasts course!)
 
 #### Public Work
 
