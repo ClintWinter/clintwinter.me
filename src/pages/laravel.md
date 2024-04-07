@@ -39,7 +39,7 @@ Some projects that I've worked on that I believe to be noteworthy.
   * It leverages Laravel's `AssertableJson` to test the CSV output.
   * It provides a really cool schema definition API similar to Laravel's migration schema for defining the CSV columns and their headers, formats, etc.
 
-I've been entrusted with these critical input/output flows that allow potential customers to migrate into our platforms from other platforms.
+I've been entrusted with building these critical input/output flows that allow potential customers to migrate into our platform.
 
 #### A few more tidbits
 
