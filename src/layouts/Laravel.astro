@@ -12,8 +12,8 @@ import '../styles/style.css';
 	<meta name="generator" content={Astro.generator} />
 	<title>Clint Winter x Laravel</title>
 </head>
-<body class="bg-white dark:bg-[#171923] sm:bg-gradient-to-br from-[#eb4432] via-[#a51f10] to-[#eb4432] font-laravel p-2 sm:p-4 sm:h-screen flex flex-col">
-    <div class="bg-white dark:bg-[#171923] rounded-sm shadow-inner p-8 self-stretch h-full overflow-y-scroll">
+<body class="bg-white dark:bg-[#171923] sm:bg-gradient-to-br from-[#eb4432] via-[#a51f10] to-[#eb4432] font-laravel p-0 sm:p-4 sm:h-screen flex flex-col">
+    <div class="scroll-container bg-white dark:bg-[#171923] rounded-sm sm:shadow-inner p-8 self-stretch h-full overflow-y-scroll">
         <main class="max-w-[65ch] w-full mx-auto space-y-5">
             <slot />
         </main>
@@ -60,5 +60,15 @@ import '../styles/style.css';
 
     main :global(ul li ul) {
         @apply mt-2
+    }
+
+    .scroll-container {
+        scrollbar-color: #b5b5bd white;
+    }
+
+    @media (prefers-color-scheme: dark) {
+        .scroll-container {
+            scrollbar-color: #b5b5bd #171923;
+        }
     }
 </style>

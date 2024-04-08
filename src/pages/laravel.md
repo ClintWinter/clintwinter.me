@@ -45,8 +45,8 @@ I've been entrusted with building these critical input/output flows that allow p
 
 * **I rise to the occasion.** I was the first full-time developer hired at my company. I went from using Laravel for the first time professionally, to a senior developer and considered one of the most adept on the team.
 * **I enjoy good design.** I'm sure you noticed, but I ripped off the Laravel documentation when making this page. I've often been complimented by designers on my ability to accurately bring their vision to life.
-* **I sweat the details.** This is harder to get away with at a startup like mine (although I've always been able to respect this balance). To me, too much "science"-ifying destroys the magic of programming. It's similar to writing. I want it to flow well. To be simple, without excessive flourish. Intuitive. Unambiguous.
-
+* **I sweat the details.** This is harder to get away with at a startup like mine (although I've successfully respected this balance thus far). I'm not happy until I think I got it right. Until every pixel is where it should be, and the API is clear.
+* **I'm an artisan.** To me, too much "science"-ifying destroys the magic of programming. Using tools to measure cyclomatic complexity and whatever else are fine, but at the end of the day, code is read by other people. And like writing, I want it to flow well. To be simple, without excessive flourish. Intuitive. Unambiguous.
 -----
 
 Thank you again for the opportunity—I wish you the best of luck in selecting the most suitable candidates, and I hope to hear from you!
