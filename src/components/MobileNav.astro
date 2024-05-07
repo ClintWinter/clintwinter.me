@@ -1,0 +1,54 @@
+---
+import Menu from './icons/Menu.astro';
+import Close from './icons/Close.astro';
+
+const path = new URL(Astro.url).pathname;
+
+const pages = [{
+    title: 'Home',
+    url: '/',
+},{
+    title: 'Blog',
+    url: '/blog',
+}, {
+    title: 'Reading List',
+    url: '/reading-list',
+}, {
+    title: 'About',
+    url: '/about',
+}];
+---
+
+<button data-menu-button aria-label="Menu" class="fixed block sm:hidden right-2 bottom-2 p-2 border bg-white dark:bg-black border-gray-500 shadow">
+    <Menu />
+</button>
+
+<nav data-mobile-nav class="hidden flex flex-col justify-end fixed inset-0 bg-gray-900/75 z-10">
+    <div class="flex flex-col items-end p-4 bg-gray-100 dark:bg-gray-800">
+        <ul class="w-full grid grid-cols-1 leading-none border border-gray-200 dark:border-gray-700 z-20">
+            {pages.map(page => (
+            <li class="col-span-1 border-b border-gray-200 dark:border-gray-700 last:border-none">
+                <a class="block text-center p-2 nav-item" href={page.url}>
+                    {path === page.url && (
+                        <span class="inline-block bg-amber-500 rounded-full w-2 h-2" />
+                    )}
+                    {page.title}
+                </a>
+            </li>
+            ))}
+        </ul>
+
+        <button class="p-2 hover:bg-gray-200" data-close-menu-button class="font-semibold cursor-pointer" aria-label="Close">
+            <Close />
+        </button>
+    </div>
+</nav>
+
+<script>
+const elMenuBtn = document.querySelector('[data-menu-button]');
+const elCloseMenuBtn = document.querySelector('[data-close-menu-button]');
+const elNav = document.querySelector('[data-mobile-nav]');
+
+elMenuBtn?.addEventListener('click', () => elNav?.classList.toggle('hidden'));
+elCloseMenuBtn?.addEventListener('click', () => elNav?.classList.toggle('hidden'));
+</script>

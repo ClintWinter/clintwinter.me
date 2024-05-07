@@ -1,15 +1,18 @@
 ---
-import Nav from "../components/Nav.astro";
-import '@fontsource/spectral/400.css';
-import '@fontsource/spectral/600.css';
-import '@fontsource/spectral/800.css';
-import '@fontsource/spectral/400-italic.css';
+import '@fontsource/ibm-plex-sans-condensed/400.css';
+import '@fontsource/ibm-plex-sans-condensed/500.css';
+import '@fontsource/ibm-plex-sans-condensed/700.css';
+import '@fontsource/ibm-plex-sans-condensed/400-italic.css';
+import '@fontsource/ibm-plex-sans-condensed/500-italic.css';
 import '@fontsource/iosevka';
 import '@fontsource/iosevka/400-italic.css';
-import Footer2 from "../components/Footer2.astro";
-import '../styles/style.css';
+import '@styles/style.css';
+import '@styles/global.css';
 
-const { title, showFooter = true } = Astro.props;
+import Nav from "@components/Nav.astro";
+import MobileNav from "@components/MobileNav.astro";
+
+const { title } = Astro.props;
 ---
 
 <html lang="en">
@@ -18,16 +21,23 @@ const { title, showFooter = true } = Astro.props;
 	<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 	<meta name="viewport" content="width=device-width" />
 	<meta name="generator" content={Astro.generator} />
+	<script defer src="https://cdn.jsdelivr.net/npm/@alpinejs/intersect@3.x.x/dist/cdn.min.js"></script>
 	<title>{title}</title>
 </head>
-<body class={`font-serif text-base md:text-lg bg-stone-50 text-stone-800 dark:bg-stone-950 dark:text-stone-300 min-h-screen flex flex-col`}>
-	<Nav />
+<body class="font-sans text-gray-950 dark:bg-gray-950 dark:text-white">
+	<aside class="fixed hidden md:block left-0 top-0 bottom-0 overflow-y-scroll p-4 w-48">
+		<Nav />
+	</aside>
 
-	<main class="p-4 md:px-8 md:pb-12 flex-grow">
+	<MobileNav />
+
+	<main class="w-full max-w-xl mx-auto p-4">
 		<slot />
 	</main>
 
-	{showFooter && <Footer2 />}
+	<aside class="fixed right-0 top-0 bottom-0 overflow-y-scroll w-48 p-4 hidden lg:block">
+		<slot name="right-aside" />
+	</aside>
 
 	<script src="https://cdn.usefathom.com/script.js" data-site="POEWOFVX" defer></script>
 </body>

@@ -1,38 +1,70 @@
 ---
-import Theme from "./Theme.astro";
+const path = new URL(Astro.url).pathname;
+
+const pages = [{
+    title: 'Blog',
+    url: '/blog',
+}, {
+    title: 'Reading List',
+    url: '/reading-list',
+}, {
+    title: 'About',
+    url: '/about',
+}];
 ---
 
-<nav class="w-full max-w-prose mx-auto p-4 flex justify-between items-baseline border-b border-stone-800 dark:border-stone-200 bg-stone-50/90 dark:bg-stone-950/60 backdrop-blur">
-    <div>
-        <a href="/" class="flex items-center gap-2 leading-0">
-            <span class="text-lg leading-none font-semibold">Clint Winter</span>
-        </a>
+<nav class="hidden sm:flex flex-col gap-y-8 w-full">
+    <ul class="flex flex-col gap-y-4 items-start">
+        <li>
+            <a href="/" class="nav-item font-bold">
+                Clint Winter
+            </a>
+        </li>
+        {pages.map(page => (
+            <li class="relative" class:list={[{active: page.url === path}]}>
+                <a class="nav-item flex items-center gap-x-1 px-2 border border-gray-500 dark:border-gray-400 shadow-[2px_2px_0_#9ca3af]" href={page.url}>
+                    {page.url === path && (
+                        <span class="inline-block w-2 h-2 bg-amber-500 rounded-full" />
+                    )}
+                    {page.title}
+                </a>
+            </li>
+        ))}
+    </ul>
+
+    <div class="px-2">
+        <p class="mb-2 text-sm font-semibold text-gray-400 dark:text-gray-500">Links</p>
+        <ul class="text-sm">
+            <li>
+                <a class="nav-item hover:underline" rel="noopener noreferer" href="https://github.com/ClintWinter">
+                    Github
+                </a>
+            </li>
+            <li>
+                <a class="nav-item hover:underline" rel="noopener noreferer" href="https://linkedin.com/in/clint-winter">
+                    LinkedIn
+                </a>
+            </li>
+            <li>
+                <a class="nav-item hover:underline" rel="noopener noreferer" href="https://twitter.com/clintwinter13">
+                    Twitter
+                </a>
+            </li>
+            <li>
+                <a class="nav-item hover:underline" rel="noopener noreferer" href="/assets/ClintWinterResume.pdf">
+                    Resume
+                </a>
+            </li>
+            <li>
+                <a class="nav-item hover:underline" rel="noopener noreferer" href="https://dev.to/clintwinter">
+                    dev.to
+                </a>
+            </li>
+            <li>
+                <a class="nav-item hover:underline" rel="noopener noreferer" href="https://www.codementor.io/@clintwinter?refer=badge">
+                    codementor.io
+                </a>
+            </li>
+        </ul>
     </div>
-
-    <ul class="hidden md:flex items-center gap-2 leading-none text-base">
-        <li><a class="inline-block p-1 hover:text-stone-200 hover:bg-stone-800 dark:hover:text-stone-800 dark:hover:bg-stone-200" href="/about">About</a></li>
-        <li><a class="inline-block p-1 hover:text-stone-200 hover:bg-stone-800 dark:hover:text-stone-800 dark:hover:bg-stone-200"" href="/blog">Blog</a></li>
-        <li><a class="inline-block p-1 hover:text-stone-200 hover:bg-stone-800 dark:hover:text-stone-800 dark:hover:bg-stone-200"" href="/reading-list">Reading List</a></li>
-    </ul>
-
-    <button data-menu-button class="block md:hidden font-semibold cursor-pointer">Menu</button>
 </nav>
-
-<nav data-mobile-nav class="hidden flex flex-col fixed inset-0 bg-stone-900/75 p-4 z-10">
-
-    <ul class="p-8 flex flex-col items-center gap-4 leading-none bg-stone-100 dark:bg-stone-800 border border-stone-200 shadow-lg dark:shadow-none dark:border-stone-700 z-20 rounded-lg">
-        <li class="self-end mb-8"><button data-close-menu-button class="font-semibold cursor-pointer">Close</button></li>
-        <li><a class="hover:text-violet-500" href="/about">About</a></li>
-        <li><a class="hover:text-violet-500" href="/blog">Blog</a></li>
-        <li><a class="hover:text-violet-500" href="/reading-list">Reading List</a></li>
-    </ul>
-</nav>
-
-<script>
-    const elMenuBtn = document.querySelector('[data-menu-button]');
-    const elCloseMenuBtn = document.querySelector('[data-close-menu-button]');
-    const elNav = document.querySelector('[data-mobile-nav]');
-
-    elMenuBtn?.addEventListener('click', () => elNav?.classList.toggle('hidden'));
-    elCloseMenuBtn?.addEventListener('click', () => elNav?.classList.toggle('hidden'));
-</script>

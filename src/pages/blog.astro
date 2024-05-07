@@ -19,21 +19,19 @@ const posts = (await Astro.glob<Frontmatter>('./blog/*.md'))
 ---
 
 <MainLayout title="Clint Winter | Blog">
-    <main class="w-full max-w-prose mx-auto md:p-4">
-        <h1 class="text-xl mb-6 font-semibold text-stone-600 dark:text-stone-200">Latest Posts</h1>
+    <h1 class="text-lg mb-6 font-semibold">Latest Posts</h1>
 
-        <ul class="max-w-prose space-y-4 md:space-y-8">
-            {posts.map((post) => (
-                <li>
-                    <a class="mb-2 font-semibold text-lg text-blue-600 visited:text-purple-700 dark:text-blue-500 dark:visited:text-purple-500 underline leading-tight" href={post.url}>
-                        {post.frontmatter.title}
-                    </a>
+    <ul class="space-y-2">
+        {posts.map((post) => (
+            <li>
+                <a class="mb-1" href={post.url}>
+                    {post.frontmatter.title}
+                </a>
 
-                    <p class="text-sm text-slate-500">
-                        {guessDateFormat(post.frontmatter.publishedAt!).toLocaleString(DateTime.DATE_MED)}
-                    </p>
-                </li>
-            ))}
-        </ul>
-    </main>
+                <p class="text-sm text-slate-500">
+                    {guessDateFormat(post.frontmatter.publishedAt!).toLocaleString(DateTime.DATE_MED)}
+                </p>
+            </li>
+        ))}
+    </ul>
 </MainLayout>

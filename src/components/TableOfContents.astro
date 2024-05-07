@@ -1,0 +1,65 @@
+---
+const { baseLevel, headings } = Astro.props;
+---
+
+<div x-data="visibleNavHighlighter" x-on:scroll.window.throttle.50ms="onScroll()">
+    <h3 class="mb-2 text-sm font-semibold text-gray-400 dark:text-gray-500">Contents</h3>
+    <ul class="text-xs flex flex-col">
+        {headings.map((heading, index) => {
+            const level = heading.depth - baseLevel + 1;
+
+            return (
+                <li
+                    key={index}
+                    class={`py-0.5 px-1 depth-${level} flex items-center gap-x-1 rounded`}
+                    :class={`visibleHeadingId == "${heading.slug}" && "bg-gray-100 dark:bg-gray-800 dark:!text-gray-50"`}
+                    title={heading.text}
+                >
+                    <a class={`inline-block w-full nav-item line-clamp-1`} href={`#${heading.slug}`}>{heading.text}</a>
+                </li>
+            );
+        })}
+    </ul>
+</div>
+
+<style>
+.depth-1 {
+    @apply text-gray-900 dark:text-gray-50;
+}
+
+.depth-2 {
+    @apply text-gray-500 dark:text-gray-400 pl-3;
+}
+
+.depth-3 {
+    @apply text-gray-500 dark:text-gray-400 pl-6;
+}
+</style>
+
+<script>
+document.addEventListener('alpine:initializing', () => {
+    Alpine.data('visibleNavHighlighter', () => ({
+        headings: document.querySelectorAll('.post-container :is(h1, h2, h3, h4, h5, h6)[id]'),
+        visibleHeadingId: null,
+
+        init() {
+            this.onScroll()
+        },
+
+        onScroll() {
+            let relativeTop = window.innerHeight / 2
+            let headingsByDistanceFromTop = {}
+
+            this.headings.forEach(heading => {
+                headingsByDistanceFromTop[heading.getBoundingClientRect().top - relativeTop] = heading
+            })
+
+            let closestNegativeTop = Math.max(...Object.keys(headingsByDistanceFromTop).filter(top => top < 0))
+            if (closestNegativeTop >= 0 || [Infinity, NaN, -Infinity].includes(closestNegativeTop))
+                return this.visibleHeadingId = null
+
+            this.visibleHeadingId = headingsByDistanceFromTop[closestNegativeTop].id
+        },
+    }))
+})
+</script>

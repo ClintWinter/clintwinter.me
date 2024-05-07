@@ -69,11 +69,11 @@ The only time this isn't doable is if the if has an else or if there are elseif'
 Let's see one step at a time. First, we will take the if-statement in the first line and turn it into a guard clause.
 
 ```php
-if (is_null($subscribed)) { // [tl! add:2]
-    return;
-}
+if (is_null($subscribed)) {
+    return; // [!code ++]
+} // [!code ++]
 
-if (! is_null($subscribed)) { // [tl! remove]
+if (! is_null($subscribed)) { // [!code --]
     if ($email = $contact->email) {
         $updated = Contact::query()
             ->where('email', $email)
@@ -90,7 +90,7 @@ if (! is_null($subscribed)) { // [tl! remove]
             }
         }
     }
-} // [tl! remove]
+} // [!code --]
 
 ```
 
@@ -101,11 +101,11 @@ if (is_null($subscribed)) {
     return;
 }
 
-if (! ($email = $contact->email)) { // [tl! add:2]
-    return;
-}
+if (! ($email = $contact->email)) { // [!code ++]
+    return; // [!code ++]
+} // [!code ++]
 
-if ($email = $contact->email) { // [tl! remove]
+if ($email = $contact->email) {  // [!code --]
 $updated = Contact::query()
     ->where('email', $email)
     ->where('is_subscribed', ! $subscribed)
@@ -120,12 +120,12 @@ if ($updated) {
         event(new Unsubscribed($email));
     }
 }
-} // [tl! remove]
+} // [!code --]
 ```
 
 We've reduced another level of indentation! Now if the contact doesn't have an email, we won't subscribe them. Terminated. We are getting to the core of what this function is actually accomplishing and less focused on what the edge cases are. So much easier to read.
 
-If you look at line 16 above, you'll see another chunk of code inside a single if-statement. You guessed it--we are adding a guard clause.
+If you look at line 17 above, you'll see another chunk of code inside a single if-statement. You guessed it--we are adding a guard clause.
 
 ```php
 if (is_null($subscribed)) {
@@ -143,21 +143,21 @@ $updated = Contact::query()
         'is_subscribed' => $subscribed,
     ]);
 
-if (! $updated) { // [tl! add:2]
-    return;
-}
+if (! $updated) { // [!code ++]
+    return; // [!code ++]
+} // [!code ++]
+// [!code ++]
+// a little extra sugar for fun ;) // [!code ++]
+$event = $subscribed ? Subscribed::class : Unsubscribed::class; // [!code ++]
+$event::dispatch($email); // [!code ++]
 
-// a little extra sugar for fun ;)
-$event = $subscribed ? Subscribed::class : Unsubscribed::class; // [tl! add:1]
-$event::dispatch($email); // [tl! focus:end]
-
-if ($updated) { // [tl! remove:6]
-    if ($subscribed) {
-        event(new Subscribed($email));
-    } else {
-        event(new Unsubscribed($email));
-    }
-}
+if ($updated) { // [!code --]
+    if ($subscribed) { // [!code --]
+        event(new Subscribed($email)); // [!code --]
+    } else { // [!code --]
+        event(new Unsubscribed($email)); // [!code --]
+    } // [!code --]
+} // [!code --]
 ```
 
 And look at that. We've completely reduced a 4x indented block of code to a single indentation. In my opinion, our result is much more readable. 

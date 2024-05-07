@@ -6,8 +6,7 @@ module.exports = {
     theme: {
         extend: {
             fontFamily: {
-                'display': ['IBM Plex Sans', ...defaultTheme.fontFamily.serif],
-                'sans': ['IBM Plex Sans', ...defaultTheme.fontFamily.sans],
+                'sans': ['IBM Plex Sans Condensed', ...defaultTheme.fontFamily.sans],
                 'serif': ['Spectral', ...defaultTheme.fontFamily.serif],
                 'mono': ['Iosevka', ...defaultTheme.fontFamily.mono],
                 'laravel': ['Mulish Variable', ...defaultTheme.fontFamily.sans],
