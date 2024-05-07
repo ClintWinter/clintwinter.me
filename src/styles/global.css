@@ -22,5 +22,5 @@
 }
 
 a:not(.nav-item) {
-    @apply text-cyan-500 dark:text-cyan-500 hover:underline font-semibold;
+    @apply text-cyan-500 dark:text-cyan-400 hover:underline font-semibold;
 }
