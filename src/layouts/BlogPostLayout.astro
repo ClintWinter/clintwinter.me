@@ -62,12 +62,12 @@ const baseLevel = Math.min(...headings.map(({ depth }) => depth));
 
 /* QUOTES */
 .post-container :global(blockquote) {
-    @apply p-4 border-l-8 border-violet-500 bg-gray-100 rounded;
+    @apply p-4 border-l-8 border-cyan-500 bg-gray-100 rounded;
 }
 
 @media (prefers-color-scheme: dark) {
     .post-container :global(blockquote) {
-        @apply p-4 border-l-8 border-violet-500 bg-gray-800 rounded shadow text-gray-200;
+        @apply p-4 border-l-8 border-cyan-500 bg-gray-800 rounded shadow text-gray-200;
     }
 }
 
@@ -143,12 +143,12 @@ const baseLevel = Math.min(...headings.map(({ depth }) => depth));
 }
 
 .post-container :global(:not(pre) code) {
-    @apply bg-gray-100 text-sm text-purple-700 px-1 rounded;
+    @apply bg-gray-100 text-sm text-rose-700 px-1 rounded;
 }
 
 @media (prefers-color-scheme: dark) {
     .post-container :global(:not(pre) code) {
-        @apply bg-transparent text-purple-300 px-1 rounded;
+        @apply bg-transparent text-rose-300 px-1 rounded;
     }
 
     .post-container :global(.astro-code .line.diff.add) {
