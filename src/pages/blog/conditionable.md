@@ -19,7 +19,7 @@ class ContactController
     public function index(Request $request)
     {
         $query = Contact::query();
-        $request->query('search');
+        $search = $request->query('search');
 
         if ($search) {
             $query->where('first_name', 'like', '%' . $search . '%')
@@ -150,5 +150,5 @@ Some developers operating from a different set of ideals do not like Laravel bec
 
 ## Resources
 
-* [Laravel Docs](https://laravel.com/docs/11.x/collections#higher-order-messages)
+* [Laravel docs](https://laravel.com/docs/11.x/collections#higher-order-messages)
 * [Laravel framework repository](https://github.com/search?q=repo%3Alaravel%2Fframework+HigherOrder&type=code)
