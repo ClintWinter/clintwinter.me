@@ -12,22 +12,24 @@ createdAt: 2024-05-07 18:07
 A standard implementation of a query that has optional filter parameters would look like this:
 
 ```php
+<?php
+
 class ContactController
 {
-  public function index(Request $request)
-  {
-    $query = Contact::query();
-    $request->query('search');
+    public function index(Request $request)
+    {
+        $query = Contact::query();
+        $request->query('search');
 
-    if ($search) {
-      $query->where('first_name', 'like', '%' . $search . '%')
-        ->orWhere('last_name', 'like', '%' . $search . '%');
+        if ($search) {
+            $query->where('first_name', 'like', '%' . $search . '%')
+                ->orWhere('last_name', 'like', '%' . $search . '%');
+        }
+
+        $contacts = $query->get();
+
+        return view('contacts', ['contacts' => $contacts]);
     }
-
-    $contacts = $query->get();
-
-    return view('contacts', ['contacts' => $contacts]);
-  }
 }
 ```
 
@@ -38,19 +40,20 @@ This is where the `Conditionable` trait shines! It provides the benefit of keepi
 Here is the previous example re-written using the methods afforded by `Conditionable`:
 
 ```php
+<?php
+
 class ContactController
 {
-  public function index(Request $request)
-  {
-    $contacts = Contact::query()
-      ->when($request->query('search'), fn (Builder $query, $search)
-        => $query->where('first_name', 'like', '%' . $search . '%')
-                 ->orWhere('last_name', 'like', '%' . $search . '%');
-      })
-      ->get();
+    public function index(Request $request)
+    {
+        $contacts = Contact::query()
+            ->when($request->query('search'), fn (Builder $query, $search)
+                => $query->where('first_name', 'like', '%' . $search . '%')
+                         ->orWhere('last_name', 'like', '%' . $search . '%'))
+            ->get();
 
-    return view('contacts', ['contacts' => $contacts]);
-  }
+        return view('contacts', ['contacts' => $contacts]);
+    }
 }
 ```
 
