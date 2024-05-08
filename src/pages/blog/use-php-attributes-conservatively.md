@@ -37,12 +37,12 @@ It was something along the lines of, "If the value is an array, treat it like a 
 
 Attributes were the saving grace in this scenario. For the methods that were supposed to function as filters, we had to pass data to those methods in a certain way. To determine if that was the case, I simply added an attribute to those methods.
 
-```php title="FilterClass.php"
+```php
 use Attributes\Filter;
 
 class FilterClass
 {
-  #[Filter] // [tl! highlight]
+  #[Filter] // [!code highlight]
   public function filterMe($operation, $data)
   {
     // filtering

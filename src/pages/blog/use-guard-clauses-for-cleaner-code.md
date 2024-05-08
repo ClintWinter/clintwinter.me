@@ -69,9 +69,9 @@ The only time this isn't doable is if the if has an else or if there are elseif'
 Let's see one step at a time. First, we will take the if-statement in the first line and turn it into a guard clause.
 
 ```php
-if (is_null($subscribed)) {
-    return; // [!code ++]
-} // [!code ++]
+if (is_null($subscribed)) { // [!code ++:3]
+    return;
+}
 
 if (! is_null($subscribed)) { // [!code --]
     if ($email = $contact->email) {
@@ -101,25 +101,25 @@ if (is_null($subscribed)) {
     return;
 }
 
-if (! ($email = $contact->email)) { // [!code ++]
-    return; // [!code ++]
-} // [!code ++]
+if (! ($email = $contact->email)) { // [!code ++:3]
+    return;
+}
 
 if ($email = $contact->email) {  // [!code --]
-$updated = Contact::query()
-    ->where('email', $email)
-    ->where('is_subscribed', ! $subscribed)
-    ->update([
-        'is_subscribed' => $subscribed,
-    ]);
+    $updated = Contact::query()
+        ->where('email', $email)
+        ->where('is_subscribed', ! $subscribed)
+        ->update([
+            'is_subscribed' => $subscribed,
+        ]);
 
-if ($updated) {
-    if ($subscribed) {
-        event(new Subscribed($email));
-    } else {
-        event(new Unsubscribed($email));
+    if ($updated) {
+        if ($subscribed) {
+            event(new Subscribed($email));
+        } else {
+            event(new Unsubscribed($email));
+        }
     }
-}
 } // [!code --]
 ```
 
@@ -143,21 +143,20 @@ $updated = Contact::query()
         'is_subscribed' => $subscribed,
     ]);
 
-if (! $updated) { // [!code ++]
-    return; // [!code ++]
-} // [!code ++]
-// [!code ++]
-// a little extra sugar for fun ;) // [!code ++]
-$event = $subscribed ? Subscribed::class : Unsubscribed::class; // [!code ++]
-$event::dispatch($email); // [!code ++]
+if (! $updated) { // [!code ++:7]
+    return;
+}
 
-if ($updated) { // [!code --]
-    if ($subscribed) { // [!code --]
-        event(new Subscribed($email)); // [!code --]
-    } else { // [!code --]
-        event(new Unsubscribed($email)); // [!code --]
-    } // [!code --]
-} // [!code --]
+// a little extra sugar for fun ;)
+$event = $subscribed ? Subscribed::class : Unsubscribed::class;
+$event::dispatch($email);
+if ($updated) { // [!code --:7]
+    if ($subscribed) {
+        event(new Subscribed($email));
+    } else {
+        event(new Unsubscribed($email));
+    }
+}
 ```
 
 And look at that. We've completely reduced a 4x indented block of code to a single indentation. In my opinion, our result is much more readable. 
