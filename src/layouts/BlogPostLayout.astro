@@ -190,4 +190,8 @@ const baseLevel = Math.min(...headings.map(({ depth }) => depth));
         @apply even:bg-gray-900;
     }
 }
+
+.post-container :global(span.line:last-child) {
+   display: none;
+}
 </style>
