@@ -35,11 +35,13 @@ class ContactController
 
 There's nothing wrong with the above solution, to be sure. However, I've seen some mighty complex queries in my time — when there are many conditionals happening, it becomes _very_ confusing to follow along to a conclusive end result.
 
-This is where the `Conditionable` trait shines! It provides the benefit of keeping all the context of the query in a single chain of events. You see the single block of code and know that it all is related. This is more readable compared to seeing disjointed if-statements littered everywhere, where you aren't sure if there are other side effects happening within them without trying to read and follow every line.
+This is where the `Conditionable` trait shines! It provides the benefit of keeping all the context of the query in a single chain of events. You see the single block of code and know that it all is related.
+
+### Two or three argument variant
 
 There are multiple "variants" of the `when` method. The method works differently based on the number of arguments, sort of like a poor man's method overloading.
 
-The two to three argument variant is the most commonly seen variant. The first argument is the _predicate_ — the condition being evaluated for true/false). The second argument is the _consequent_ — the callback that's executed when the condition is truthy. The third and optional argument is the _alternative_ — the callback that's executed when the condition is falsy.
+The two to three argument variant is the most commonly seen variant. The first argument is the _predicate_ — the condition being evaluated for true/false. The second argument is the _consequent_ — the callback that's executed when the condition is truthy. The third and optional argument is the _alternative_ — the callback that's executed when the condition is falsy.
 
 Here is the previous example re-written using the 2-argument variant of `when` afforded by `Conditionable`:
 
@@ -61,13 +63,19 @@ class ContactController
 }
 ```
 
-All the logic for building our query is now in a single chain. You'll also notice that the predicate of our condition (`$request->query('search')`) is provided back to us in the callback, so we don't have to declare an intermediate variable or re-write the expression.
+All the logic for building our query is now in a single chain. You'll also notice that the predicate of our condition (`$request->query('search')`) is provided back to us in the callback (`$search`), so we don't have to declare an intermediate variable or re-write the expression.
 
 ### One argument variant
 
 We are going to talk about how this variant and the zero argument variant work in a bit, but first let me explain what they look like.
 
-The one argument variant moves the consequent from the second argument position of the `when` method call to the subsequent method called after `when`. Take a look at this example to see what I mean.
+Here's the syntax:
+
+```php
+$conditionable->when(true)->consequent();
+```
+
+The one argument variant moves the consequent from the second argument position of the `when` method chained directly after `when`. Take a look at this example to see what I mean.
 
 ```php
 $email = $request->query('email');
@@ -79,13 +87,21 @@ $query->when($email)->where('email', $email);
 
 ### Zero argument variant
 
-This one is even more niche than the last variant. It exports the predicate of the expression to the subsequent method and shifts the consequent to the method following that.
+This one is even more niche than the last variant. It looks like this:
+
+```php
+$conditionable->when()->predicate()->consequent();
+```
+
+And using a real example, like this:
 
 ```php
 now()->when()->isWeekend()->nextWeekDay();
 ```
 
 We call `when()`, and we evaluate `isWeekend()` for truthiness. If truthy, we call `nextWeekDay()`, otherwise skip it.
+
+Like I said, very niche, but neat if you recognize an opportunity.
 
 ## Higher-order message
 
