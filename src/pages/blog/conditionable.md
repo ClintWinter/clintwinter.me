@@ -43,6 +43,14 @@ There are multiple "variants" of the `when` method. The method works differently
 
 The two to three argument variant is the most commonly seen variant. The first argument is the _predicate_ — the condition being evaluated for true/false. The second argument is the _consequent_ — the callback that's executed when the condition is truthy. The third and optional argument is the _alternative_ — the callback that's executed when the condition is falsy.
 
+```php
+$conditionable->when(
+    true,
+    fn ($cond) => $cond->consequent(),
+    fn ($cond) => $cond->alternative(),
+);
+```
+
 Here is the previous example re-written using the 2-argument variant of `when` afforded by `Conditionable`:
 
 ```php
