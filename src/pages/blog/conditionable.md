@@ -114,7 +114,7 @@ The answer is [higher order messages](https://laravel.com/docs/11.x/collections#
 You may have been using Laravel for years without being aware of their existence, but Laravel uses them everywhere.
 
 * `HigherOrderWhenProxy` — used in `Conditionable` like we just covered.
-* `HigherOrderCollectionProxy` — used by collections.
+* `HigherOrderCollectionProxy` — used by collections, e.g. `$collection->map->name`.
 * `HigherOrderTapProxy` — used by the `tap` helper and therefor by the `Tappable` trait.
 
 ### How does it work?
