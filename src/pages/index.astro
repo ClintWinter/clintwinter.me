@@ -19,17 +19,66 @@ const latestPosts = (await Astro.glob<Frontmatter>('./blog/*.md'))
 ---
 
 <MainLayout title="Clint Winter">
-    <h2 class="mb-6 font-semibold text-lg">Latest Posts</h2>
-    <ul class="space-y-2">
-    {latestPosts.map((post) => (
-        <li>
-            <a href={post.url}>
-                {post.frontmatter.title}
-            </a>
-            <p class="text-sm text-gray-500">
-                {guessDateFormat(post.frontmatter.publishedAt!).toLocaleString(DateTime.DATE_MED)}
-            </p>
-        </li>
-    ))}
-    </ul>
+    <div class="space-y-8 mb-4">
+        <header class="flex justify-between items-start gap-x-4">
+            <img class="aspect-auto w-20 sm:w-32 rounded" src="/assets/avatar.jpg" alt="Profile avatar" />
+
+            <div>
+                <h1 class="mb-2 font-bold text-lg sm:text-2xl">Welcome, I'm Clint Winter</h1>
+                <p>I'm a senior full-stack developer at <a href="https://givebutter.com" rel="noopener noreferer">Givebutter</a>. I've been in the Laravel/PHP ecosystem for 8 years, and I'm loving every minute of it.</p>
+            </div>
+        </header>
+
+        <section>
+            <h2 class="mb-2 font-medium sm:text-lg">Links you may be interested in</h2>
+            <ul class="w-full flex-grow grid grid-cols-2 gap-2">
+                <li class="col-span-1 h-10">
+                    <a class="nav-item flex items-center justify-center w-full h-full bg-gray-100 border border-gray-200 dark:border-0 dark:bg-gray-800 hover:bg-cyan-400 dark:hover:bg-cyan-500" rel="noopener noreferer" href="https://github.com/ClintWinter">
+                        Github
+                    </a>
+                </li>
+                <li class="col-span-1 h-10">
+                    <a class="nav-item flex items-center justify-center w-full h-full bg-gray-100 border border-gray-200 dark:border-0 dark:bg-gray-800 hover:bg-cyan-400 dark:hover:bg-cyan-500" rel="noopener noreferer" href="https://linkedin.com/in/clint-winter">
+                        LinkedIn
+                    </a>
+                </li>
+                <li class="col-span-1 h-10">
+                    <a class="nav-item flex items-center justify-center w-full h-full bg-gray-100 border border-gray-200 dark:border-0 dark:bg-gray-800 hover:bg-cyan-400 dark:hover:bg-cyan-500" rel="noopener noreferer" href="https://twitter.com/clintwinter13">
+                        Twitter
+                    </a>
+                </li>
+                <li class="col-span-1 h-10">
+                    <a class="nav-item flex items-center justify-center w-full h-full bg-gray-100 border border-gray-200 dark:border-0 dark:bg-gray-800 hover:bg-cyan-400 dark:hover:bg-cyan-500" rel="noopener noreferer" href="/assets/ClintWinterResume.pdf">
+                        Resume
+                    </a>
+                </li>
+                <li class="col-span-1 h-10">
+                    <a class="nav-item flex items-center justify-center w-full h-full bg-gray-100 border border-gray-200 dark:border-0 dark:bg-gray-800 hover:bg-cyan-400 dark:hover:bg-cyan-500" rel="noopener noreferer" href="https://dev.to/clintwinter">
+                        dev.to
+                    </a>
+                </li>
+                <li class="col-span-1 h-10">
+                    <a class="nav-item flex items-center justify-center w-full h-full bg-gray-100 border border-gray-200 dark:border-0 dark:bg-gray-800 hover:bg-cyan-400 dark:hover:bg-cyan-500" rel="noopener noreferer" href="https://www.codementor.io/@clintwinter?refer=badge">
+                        codementor.io
+                    </a>
+                </li>
+            </ul>
+        </section>
+
+        <section>
+            <h2 class="mb-2 font-medium sm:text-lg">My most recent articles</h2>
+            <ul class="space-y-2">
+            {latestPosts.map((post) => (
+                <li>
+                    <a href={post.url}>
+                        {post.frontmatter.title}
+                    </a>
+                    <p class="text-sm text-gray-500">
+                        {guessDateFormat(post.frontmatter.publishedAt!).toLocaleString(DateTime.DATE_MED)}
+                    </p>
+                </li>
+            ))}
+            </ul>
+        </section>
+    </div>
 </MainLayout>

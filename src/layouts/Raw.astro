@@ -9,9 +9,6 @@ import '@fontsource/iosevka/400-italic.css';
 import '@styles/style.css';
 import '@styles/global.css';
 
-import Nav from "@components/Nav.astro";
-import MobileNav from "@components/MobileNav.astro";
-
 const { title } = Astro.props;
 ---
 
@@ -24,21 +21,7 @@ const { title } = Astro.props;
 	<script defer src="https://cdn.jsdelivr.net/npm/@alpinejs/intersect@3.x.x/dist/cdn.min.js"></script>
 	<title>{title}</title>
 </head>
-<body class="font-sans text-gray-950 bg-gray-50 dark:text-gray-50 dark:bg-gray-950">
-	<aside class="fixed hidden md:block left-0 top-0 bottom-0 overflow-y-scroll p-4 w-48">
-		<Nav />
-	</aside>
-
-	<MobileNav />
-
-	<main class="w-full max-w-xl mx-auto p-4">
-		<slot />
-	</main>
-
-	<aside class="fixed right-0 top-0 bottom-0 overflow-y-scroll w-48 p-4 hidden lg:block">
-		<slot name="right-aside" />
-	</aside>
-
-	<script src="https://cdn.usefathom.com/script.js" data-site="POEWOFVX" defer></script>
+<body class="font-sans text-gray-950 dark:bg-gray-950 dark:text-white">
+    <slot />
 </body>
 </html>
