@@ -173,7 +173,7 @@ class FooController extends Controller
 
 ## Faking the facade
 
-Laravel often offers a neat way to easily fake its facades - `Foo::fake()`. We can easily do this ourselves.
+Laravel often offers a neat way to easily fake its facades, e.g. `Event::fake()`. We can implement this ourselves.
 
 All we have to do is create the fake implementation of our contract, then add the `fake` method to our facade.
 
