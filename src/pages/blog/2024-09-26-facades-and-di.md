@@ -163,7 +163,7 @@ class FooController extends Controller
 }
 ```
 
-Laravel often offers a neat way to easily fake a facade (`Foo::fake()`).
+Laravel often offers a neat way to easily fake its facades - `Foo::fake()`. We can easily do this ourselves.
 
 All we have to do is create the fake implementation of our contract, then add the `fake` method to our facade.
 
@@ -176,6 +176,8 @@ use App\Foo\Contracts\Foo;
 
 class FakeFooService implements Foo
 {
+    public function __construct(public Foo $actual) {}
+
     public function foo(): string
     {
         return 'fake';
@@ -188,7 +190,9 @@ class FakeFooService implements Foo
 }
 ```
 
-And our facade `fake` implementation.
+In our fake implementation, we also create a public reference to the "actual" concrete class.
+
+And here is our facade `fake` implementation. You can see we utilize that reference to `actual`.
 
 ```php
 <?php
@@ -207,7 +211,7 @@ class Foo extends Facade
     public static function fake()
     {
         $actual = static::isFake()
-            ? static::getFacadeRoot()->sentinel
+            ? static::getFacadeRoot()->actual
             : static::getFacadeRoot();
 
         tap(new FakeFooService($actual), function ($fake) {
@@ -254,6 +258,59 @@ class FooTest extends TestCase
 
 The tests are not useful but they show how easy it is to use our fake. In `test_fake_foo` we get `foo=fake` while `test_foo` returns `foo=bar`.
 
-The fun thing about fakes is that in our fake implementation, we can add extra methods to test anything we may find useful. For example, we could slap a counter in our fake's `foo` method that increments every time we call `foo`. Then we could add a method called `assertFakeCalls` where we can assert that the method was called as many times as we are expecting.
+The fun thing about fakes is that in our fake implementation, we can add extra methods to test anything we may find useful. For example, we could slap a counter in our fake's `foo` method that increments every time we call `foo`. Then we could add a method called `assertFooCount` where we can assert that the method was called as many times as we are expecting.
 
-That's it! Not everything needs a facade, but when you are building tools/packages that are used internally, a facade is often a strong pattern to rely upon.
+
+```php
+<?php
+
+namespace App\Foo;
+
+use App\Foo\Contracts\Foo;
+use Illuminate\Testing\Assert;
+
+class FakeFooService implements Foo
+{
+    public int $fooCount = 0;
+
+    public function __construct(public Foo $actual) {}
+
+    public function foo(): string
+    {
+        $this->fooCount++;
+
+        return 'fake';
+    }
+
+    public function fizz(): string
+    {
+        return 'very fake';
+    }
+
+    public function assertFooCount(int $count)
+    {
+        Assert::assertSame($this->fooCount, $count);
+    }
+}
+```
+
+As you can see we use Laravel's `lluminate\Testing\Assert` to make the assertion. Then our test can look like this.
+
+
+```php
+public function test_incrementor(): void
+{
+    Foo::fake();
+
+    Foo::foo();
+    Foo::foo();
+    Foo::foo();
+
+    Foo::assertFooCount(3); // pass!
+}
+```
+
+
+That's it! 
+
+Not everything needs a facade, but when you are building tools/packages that are used internally, a facade is often a strong pattern to rely upon.
