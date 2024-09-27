@@ -328,3 +328,5 @@ public function test_incrementor(): void
 That's it! 
 
 Not everything needs a facade, but when you are building tools/packages that are used internally, a facade is often a strong pattern to rely upon.
+
+Here's the repo with all the code: https://github.com/ClintWinter/laravel-facade-example
