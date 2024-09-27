@@ -38,6 +38,8 @@ class FooService
 }
 ```
 
+## The contract
+
 First, we should create a contract so we can ensure that our eventual fake and our original service both meet expectations. As well as any future implementations.
 
 
@@ -69,6 +71,8 @@ class FooService implements Foo
 }
 ```
 
+## Binding to the container
+
 Next, we should bind the concrete implementation to the contract in our service provider.
 
 ```php
@@ -93,6 +97,8 @@ class AppServiceProvider extends ServiceProvider
    // ...
 }
 ```
+
+## The facade
 
 Now, we can create our facade class.
 
@@ -121,6 +127,8 @@ The facade simply needs the name of the binding it will pull from the container 
 > Note that if you want IDE support, you'll have to re-define the method signatures in the doc block above the class.
 
 At this point, we can use our facade.
+
+## Usage
 
 ```php
 <?php
@@ -162,6 +170,8 @@ class FooController extends Controller
     }
 }
 ```
+
+## Faking the facade
 
 Laravel often offers a neat way to easily fake its facades - `Foo::fake()`. We can easily do this ourselves.
 
@@ -223,6 +233,8 @@ class Foo extends Facade
 }
 ```
 
+## A basic test
+
 Now let's write a quick test that hits the controller example we created above.
 
 ```php
@@ -257,6 +269,8 @@ class FooTest extends TestCase
 ```
 
 The tests are not useful but they show how easy it is to use our fake. In `test_fake_foo` we get `foo=fake` while `test_foo` returns `foo=bar`.
+
+## Taking testing further
 
 The fun thing about fakes is that in our fake implementation, we can add extra methods to test anything we may find useful. For example, we could slap a counter in our fake's `foo` method that increments every time we call `foo`. Then we could add a method called `assertFooCount` where we can assert that the method was called as many times as we are expecting.
 
@@ -294,7 +308,7 @@ class FakeFooService implements Foo
 }
 ```
 
-As you can see we use Laravel's `lluminate\Testing\Assert` to make the assertion. Then our test can look like this.
+As you can see we use Laravel's `Illuminate\Testing\Assert` to make the assertion. Then our test can look like this.
 
 
 ```php
