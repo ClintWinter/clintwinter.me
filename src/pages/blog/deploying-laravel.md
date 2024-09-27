@@ -56,7 +56,7 @@ To add ssh access to the user, add the public ssh key to `/home/clint/.ssh/autho
 Local:
 
 ```bash
-cat ~/.ssh/is_rsa | pbcopy
+cat ~/.ssh/id_rsa.pub | pbcopy
 ```
 
 Remote:

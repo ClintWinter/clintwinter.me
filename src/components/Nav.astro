@@ -1,4 +1,6 @@
 ---
+import { links } from "../utils/data";
+
 const pages = [{
     title: 'Blog',
     url: '/blog',
@@ -30,36 +32,9 @@ const pages = [{
     <div class="px-2">
         <p class="mb-2 text-sm font-semibold text-gray-400 dark:text-gray-500">Links</p>
         <ul class="text-sm">
-            <li>
-                <a class="nav-item hover:underline" rel="noopener noreferer" href="https://github.com/ClintWinter">
-                    Github
-                </a>
-            </li>
-            <li>
-                <a class="nav-item hover:underline" rel="noopener noreferer" href="https://linkedin.com/in/clint-winter">
-                    LinkedIn
-                </a>
-            </li>
-            <li>
-                <a class="nav-item hover:underline" rel="noopener noreferer" href="https://twitter.com/clintwinter13">
-                    Twitter
-                </a>
-            </li>
-            <li>
-                <a class="nav-item hover:underline" rel="noopener noreferer" href="/assets/ClintWinterResume.pdf">
-                    Resume
-                </a>
-            </li>
-            <li>
-                <a class="nav-item hover:underline" rel="noopener noreferer" href="https://dev.to/clintwinter">
-                    dev.to
-                </a>
-            </li>
-            <li>
-                <a class="nav-item hover:underline" rel="noopener noreferer" href="https://www.codementor.io/@clintwinter?refer=badge">
-                    codementor.io
-                </a>
-            </li>
+            {links.map(link => (
+                <li><a class="nav-item hover:underline" rel="noopener noreferer" href={link.url}>{link.text}</a></li>
+            ))}
         </ul>
     </div>
 </nav>

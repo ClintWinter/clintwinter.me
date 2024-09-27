@@ -11,6 +11,7 @@ interface Frontmatter {
 import { DateTime } from "luxon";
 import MainLayout from "../layouts/MainLayout.astro";
 import { guessDateFormat } from "../utils/dates";
+import { links } from "../utils/data";
 
 const latestPosts = (await Astro.glob<Frontmatter>('./blog/*.md'))
     .filter((post) => post.frontmatter.publishedAt)
@@ -32,36 +33,13 @@ const latestPosts = (await Astro.glob<Frontmatter>('./blog/*.md'))
         <section>
             <h2 class="mb-2 font-medium sm:text-lg">Links you may be interested in</h2>
             <ul class="w-full flex-grow grid grid-cols-2 gap-2">
+                {links.map(link => (
                 <li class="col-span-1 h-10">
-                    <a class="nav-item flex items-center justify-center w-full h-full bg-gray-100 border border-gray-200 dark:border-0 dark:bg-gray-800 hover:bg-cyan-400 dark:hover:bg-cyan-500" rel="noopener noreferer" href="https://github.com/ClintWinter">
-                        Github
+                    <a class="nav-item flex items-center justify-center w-full h-full bg-gray-100 border border-gray-200 dark:border-0 dark:bg-gray-800 hover:bg-cyan-400 dark:hover:bg-cyan-500" rel="noopener noreferer" href={link.url}>
+                        {link.text}
                     </a>
                 </li>
-                <li class="col-span-1 h-10">
-                    <a class="nav-item flex items-center justify-center w-full h-full bg-gray-100 border border-gray-200 dark:border-0 dark:bg-gray-800 hover:bg-cyan-400 dark:hover:bg-cyan-500" rel="noopener noreferer" href="https://linkedin.com/in/clint-winter">
-                        LinkedIn
-                    </a>
-                </li>
-                <li class="col-span-1 h-10">
-                    <a class="nav-item flex items-center justify-center w-full h-full bg-gray-100 border border-gray-200 dark:border-0 dark:bg-gray-800 hover:bg-cyan-400 dark:hover:bg-cyan-500" rel="noopener noreferer" href="https://twitter.com/clintwinter13">
-                        Twitter
-                    </a>
-                </li>
-                <li class="col-span-1 h-10">
-                    <a class="nav-item flex items-center justify-center w-full h-full bg-gray-100 border border-gray-200 dark:border-0 dark:bg-gray-800 hover:bg-cyan-400 dark:hover:bg-cyan-500" rel="noopener noreferer" href="/assets/ClintWinterResume.pdf">
-                        Resume
-                    </a>
-                </li>
-                <li class="col-span-1 h-10">
-                    <a class="nav-item flex items-center justify-center w-full h-full bg-gray-100 border border-gray-200 dark:border-0 dark:bg-gray-800 hover:bg-cyan-400 dark:hover:bg-cyan-500" rel="noopener noreferer" href="https://dev.to/clintwinter">
-                        dev.to
-                    </a>
-                </li>
-                <li class="col-span-1 h-10">
-                    <a class="nav-item flex items-center justify-center w-full h-full bg-gray-100 border border-gray-200 dark:border-0 dark:bg-gray-800 hover:bg-cyan-400 dark:hover:bg-cyan-500" rel="noopener noreferer" href="https://www.codementor.io/@clintwinter?refer=badge">
-                        codementor.io
-                    </a>
-                </li>
+                ))}
             </ul>
         </section>
 
