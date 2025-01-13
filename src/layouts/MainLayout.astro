@@ -38,7 +38,39 @@ const { title } = Astro.props;
 	<aside class="fixed right-0 top-0 bottom-0 overflow-y-scroll w-48 p-4 hidden lg:block">
 		<slot name="right-aside" />
 	</aside>
-
-	<script src="https://cdn.usefathom.com/script.js" data-site="POEWOFVX" defer></script>
 </body>
 </html>
+
+<style is:global>
+@font-face {
+  font-family: 'Berkeley Mono Condensed';
+  src: url('https://fonts.cdn.clintwinter.me/BerkeleyMono/BerkeleyMono-Condensed.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Berkeley Mono Condensed';
+  src: url('https://fonts.cdn.clintwinter.me/BerkeleyMono/BerkeleyMono-Bold-Condensed.woff2') format('woff2');
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Berkeley Mono Condensed';
+  src: url('https://fonts.cdn.clintwinter.me/BerkeleyMono/BerkeleyMono-Condensed-Oblique.woff2') format('woff2');
+  font-weight: normal;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Berkeley Mono Condensed';
+  src: url('https://fonts.cdn.clintwinter.me/BerkeleyMono/BerkeleyMono-Bold-Condensed-Oblique.woff2') format('woff2');
+  font-weight: bold;
+  font-style: italic;
+  font-display: swap;
+}
+</style>

@@ -17,5 +17,5 @@ export default defineConfig({
       transformers: [transformerNotationDiff(), transformerNotationHighlight()]
     }
     // extendDefaultPlugins: true
-  }
+  },
 });
