@@ -9,12 +9,11 @@ export default defineConfig({
   integrations: [tailwind(), alpine()],
   markdown: {
     shikiConfig: {
-      // theme: 'nord',
-      themes: {
-        dark: 'github-dark-default',
-        light: 'github-light'
-      },
-      transformers: [transformerNotationDiff(), transformerNotationHighlight()]
+      theme: 'gruvbox-light-hard',
+      transformers: [
+        transformerNotationDiff({ matchAlgorithm: 'v1' }),
+        transformerNotationHighlight({ matchAlgorithm: 'v1' }),
+      ]
     }
     // extendDefaultPlugins: true
   },

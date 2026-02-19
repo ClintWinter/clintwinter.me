@@ -6,10 +6,21 @@ module.exports = {
     theme: {
         extend: {
             fontFamily: {
-                'sans': ['Berkeley Mono Condensed', 'IBM Plex Sans Condensed', ...defaultTheme.fontFamily.sans],
-                'serif': ['Spectral', ...defaultTheme.fontFamily.serif],
-                'mono': ['Berkeley Mono Condensed', 'Iosevka', ...defaultTheme.fontFamily.mono],
+                'heading': ['Playfair Display', 'serif'],
+                'body': ['Crimson Pro', 'serif'],
                 'laravel': ['Mulish Variable', ...defaultTheme.fontFamily.sans],
+            },
+            colors: {
+                parchment: '#F5F0E8',
+                brown:     '#3D2B1F',
+                burgundy:  '#6B2D3E',
+                gold:      'rgb(155, 121, 64)',
+                teal:      '#2D5F5D',
+                muted:     '#8B7D6B',
+                tan:       '#D4C5A9',
+            },
+            letterSpacing: {
+                section: '0.2em',
             },
         },
     },

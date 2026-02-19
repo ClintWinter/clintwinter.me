@@ -1,0 +1,136 @@
+---
+import MainLayout from "../layouts/MainLayout.astro";
+---
+
+<MainLayout title={'Clint Winter | Resume'}>
+    <div class="container print:!w-full print:p-2 text-sm print:text-xs leading-snug space-y-4">
+        <header>
+            <h1>Clint Winter</h1>
+            <p>Shamong, NJ</p>
+            <ul class="flex divide-x divide-zinc-950">
+                <li class="pr-1"><a class="nav-item underline" href="https://clintwinter.me">clintwinter.me</a></li>
+                <li class="px-1"><a class="nav-item underline" href="https://github.com/clintwinter">github.com/clintwinter</a></li>
+                <li class="pl-1"><a class="nav-item underline" href="https://linkedin.com/in/clint-winter">linkedin.com/in/clint-winter</a></li>
+            </ul>
+        </header>
+
+
+        <section>
+            <p>I am a full-stack developer with expertise in Laravel and the surrounding ecosystem, and competent with React/Typescript. I have a reputation for taking a grounded, pragmatic approach with a focus on the user. I have a penchant for readable code, and I enjoy pair-programming and code reviews.</p>
+        </section>
+
+        <section class="space-y-4">
+            <h2>Professional Experience</h2>
+
+            <div class="company">
+                <div class="company__top-row">
+                    <h3>Givebutter</h3>
+                    <date>January 2021 - Present</date>
+                </div>
+
+                <div class="company__position">
+                    <div class="company__position-row">
+                        <h4>Senior full-stack developer</h4>
+                        <date>March 2022 - Present</date>
+                    </div>
+
+                    <ul class="company__position-list">
+                        <li>Architected and constructed our import processor front-to-back, which has handled millions of records from our users.</li>
+                        <li>Overhauled our open-source Laravel Custom Fields package to be fully extendable for a seamless developer experience. Also built the entire front-end implementation in React.</li>
+                        <li>Took responsibility for coding conventions. Moved the team towards patterns that made testing a priority, resulting in less bugs and higher code coverage.</li>
+                        <li>Recognized for performing thorough code reviews that always pushed developers to improve without nitpicking. Often stepped into other code reviews and unblocked teammates that got stuck in the weeds</li>
+                    </ul>
+                </div>
+
+                <div class="company__position">
+                    <div class="company__position-row">
+                        <h4>Senior full-stack developer</h4>
+                        <date>January 2021 - March 2022</date>
+                    </div>
+
+                    <p>The first full-time engineer hired on the team.</p>
+
+                    <ul class="company__position-list">
+                        <li>Built a real-time, digital, event system that was critical to our success in the COVID era. Included live streaming features and ticket check-ins via QR scanning.</li>
+                        <li>Rapidly developed an advanced filtering system in coordination with our front-end team to meet a strict deadline. The system is still heavily used with no post-launch refactoring required.</li>
+                        <li>Operated as a lynchpin between the product and support teams by breaking down complex features into plain language and helping resolve issues.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="company">
+                <div class="company__top-row">
+                    <h3>DirectLync</h3>
+                    <date>October 2018 - January 2021</date>
+                </div>
+
+                <div class="company__position">
+                    <div class="company__position-row">
+                        <h4>Software Engineer II</h4>
+                    </div>
+
+                    <p>Charged with developing a new digital marketing SaaS platform as a small startup during a company transition from agency work. Responsibilities were focused on large feature development and bug fixing when necessary.</p>
+
+                    <ul class="company__position-list">
+                        <li>Optimized and redesigned large MySQL stored procedures, resulting in speed increases of nearly 300%.</li>
+                        <li>Proposed and led a transition from TFS version control to Git that reclaimed 15% of total working hours for all developers including the company president, who is the lead engineer.</li>
+                        <li>Spearheaded CRM feature development using RESTful APIs with AJAX and cron jobs that quickly handled CSV contact imports with hundreds of thousands of rows.</li>
+                        <li>Refactored highly-coupled non-DRY code that consumed countless hours from developers and abstracted them into extensible classes and functions. Simultaneously encouraged a team culture of clean code that has since taken hold.</li>
+                        <li>Constructed a comprehensive content management system (CMS) to effectively track, monitor and manage clients using MySQL, PHP and JavaScript.</li>
+                        <li>Took the liberty of writing internal documentation leading to lower ramp-up time for new hires and increased overall developer confidence.</li>
+                        <li>Mentored junior developers with knowledge sharing, resource sharing, and code reviews which empowered them to become valuable contributors and problem-solvers.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="company">
+                <div class="company__top-row">
+                    <h3>CWR Electronics</h3>
+                    <date>October 2015 - October 2018</date>
+                </div>
+
+                <div class="company__position">
+                    <div class="company__position-row">
+                        <h4>Full-stack web developer</h4>
+                    </div>
+
+                    <p>Responsible for the internal CMS and the e-commerce platform while working remotely full-time.</p>
+
+                    <ul class="company__position-list">
+                        <li>Overhauled the e-commerce platform including a database redesign and a revitalized cart system using AJAX requests. Also utilized the browser session and database to implement a persistent cart for the user.</li>
+                        <li>Built an internal CMS from the ground up, which provided an upgraded interface for employees to be more efficient.</li>
+                        <li>Upgraded our asset packaging system with Webpack resulting in a reduction of total resource load by 62%.</li>
+                        <li>Designed a user dashboard that included customizable, resizable, and reorderable widgets using dynamic JavaScript and jQueryUI.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+    </div>
+</MainLayout>
+
+<style>
+
+h2 {
+    @apply text-lg font-bold;
+}
+
+.company .company__top-row {
+    @apply flex justify-between font-bold;
+}
+
+.company .company__position {
+    @apply mb-4 last-of-type:mb-0;
+}
+
+.company .company__position-row {
+    @apply flex justify-between;
+}
+
+.company .company__position-row h4 {
+    @apply underline;
+}
+
+.company .company__position-list {
+    @apply list-disc list-outside ml-3 space-y-1;
+}
+</style>

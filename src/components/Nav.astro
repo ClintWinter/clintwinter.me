@@ -1,40 +1,25 @@
 ---
-import { links } from "../utils/data";
+interface Props {
+    page?: 'home' | 'other';
+    backHref?: string;
+    backText?: string;
+    navBorder?: boolean;
+}
 
-const pages = [{
-    title: 'Blog',
-    url: '/blog',
-}, {
-    title: 'Reading List',
-    url: '/reading-list',
-}, {
-    title: 'About',
-    url: '/about',
-}];
+const { page = 'other', backHref = '/', backText = '← Return Home', navBorder = true } = Astro.props;
 ---
 
-<nav class="hidden sm:flex flex-col gap-y-8 w-full">
-    <ul class="flex flex-col gap-y-4 items-start">
-        <li>
-            <a href="/" class="nav-item font-bold">
-                Clint Winter
-            </a>
-        </li>
-        {pages.map(page => (
-            <li>
-                <a class="nav-item flex items-center gap-x-1 px-2 border border-gray-500 dark:border-gray-400 shadow-[2px_2px_0_#9ca3af]" href={page.url}>
-                    {page.title}
-                </a>
-            </li>
-        ))}
-    </ul>
-
-    <div class="px-2">
-        <p class="mb-2 text-sm font-semibold text-gray-400 dark:text-gray-500">Links</p>
-        <ul class="text-sm">
-            {links.map(link => (
-                <li><a class="nav-item hover:underline" rel="noopener noreferer" href={link.url}>{link.text}</a></li>
-            ))}
-        </ul>
-    </div>
-</nav>
+{page === 'home' ? (
+    <nav class="flex justify-between items-center pb-6 mb-12 border-b border-tan">
+        <a href="/" class="font-heading text-xl font-bold text-brown no-underline">Clint Winter</a>
+        <div class="flex gap-x-6 font-body text-base italic">
+            <a href="/blog" class="tactile-link">Musings</a>
+            <a href="/reading-list" class="tactile-link">Reading</a>
+            <a href="/about" class="tactile-link">About</a>
+        </div>
+    </nav>
+) : (
+    <nav class={`pb-4 mb-6 text-center ${navBorder ? 'border-b border-tan' : ''}`}>
+        <a href={backHref} class="tactile-link text-sm font-body italic">{backText}</a>
+    </nav>
+)}

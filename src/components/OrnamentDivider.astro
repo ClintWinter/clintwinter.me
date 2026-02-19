@@ -1,0 +1,14 @@
+---
+interface Props {
+    ornament?: string;
+    class?: string;
+}
+
+const { ornament = '❧', class: className = '' } = Astro.props;
+---
+
+<div class={`flex items-center gap-4 my-10 ${className}`}>
+    <div class="flex-1 h-px bg-gradient-to-r from-transparent to-tan"></div>
+    <span class="font-heading text-2xl select-none text-gold">{ornament}</span>
+    <div class="flex-1 h-px bg-gradient-to-l from-transparent to-tan"></div>
+</div>

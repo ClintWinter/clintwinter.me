@@ -1,26 +1,302 @@
+/* @import url() FONT IMPORTS MUST ALWAYS BE AT THE VERY TOP OF THIS FILE — DO NOT DELETE THIS COMMENT */
+@import url('https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,400;0,500;0,600;1,400;1,600&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap');
+
+/* END FONT IMPORTS — ALL OTHER CSS MUST GO BELOW THIS LINE */
+
+@font-face {
+  font-family: 'Berkeley Mono Condensed';
+  src: url('https://clintwinter-fonts.nyc3.cdn.digitaloceanspaces.com/BerkeleyMono/BerkeleyMono-Condensed.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Berkeley Mono Condensed';
+  src: url('https://clintwinter-fonts.nyc3.cdn.digitaloceanspaces.com/BerkeleyMono/BerkeleyMono-Bold-Condensed.woff2') format('woff2');
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Berkeley Mono Condensed';
+  src: url('https://clintwinter-fonts.nyc3.cdn.digitaloceanspaces.com/BerkeleyMono/BerkeleyMono-Condensed-Oblique.woff2') format('woff2');
+  font-weight: normal;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Berkeley Mono Condensed';
+  src: url('https://clintwinter-fonts.nyc3.cdn.digitaloceanspaces.com/BerkeleyMono/BerkeleyMono-Bold-Condensed-Oblique.woff2') format('woff2');
+  font-weight: bold;
+  font-style: italic;
+  font-display: swap;
+}
+
+body {
+  background-color: #F5F0E8;
+  color: #3D2B1F;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.05'/%3E%3C/svg%3E");
+}
+
+/* Typography Utilities */
+.font-heading {
+  font-family: 'Playfair Display', serif;
+}
+.font-body {
+  font-family: 'Crimson Pro', serif;
+}
+
+/* Drop Cap */
+.drop-cap::first-letter,
+.prose > p:first-of-type::first-letter {
+  font-family: 'Playfair Display', serif;
+  font-size: 3.8em;
+  float: left;
+  line-height: 0.8;
+  padding-right: 12px;
+  padding-top: 4px;
+  color: #6B2D3E;
+  font-weight: 700;
+}
+
+/* Selection */
+::selection {
+  background: #D4C5A9;
+  color: #3D2B1F;
+}
+
+/* Tactile Link */
+.tactile-link {
+  color: #2D5F5D;
+  text-decoration: underline;
+  text-decoration-color: #7BA3A0;
+  text-underline-offset: 2px;
+  transition: text-decoration-color 0.2s;
+}
+.tactile-link:hover {
+  text-decoration-color: #2D5F5D;
+}
+
+/* ═══════════════════════════════════════════
+   PROSE STYLES — Rich text within articles
+   ═══════════════════════════════════════════ */
+
+.prose h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #6B2D3E;
+  margin-top: 3rem;
+  margin-bottom: 1.5rem;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+}
+.prose h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.875rem;
+  font-weight: 700;
+  color: #3D2B1F;
+  margin-top: 3rem;
+  margin-bottom: 1rem;
+  line-height: 1.3;
+}
+.prose h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.375rem;
+  font-weight: 600;
+  color: #5A3D2E;
+  margin-top: 2rem;
+  margin-bottom: 0.75rem;
+  line-height: 1.4;
+  font-style: italic;
+}
+
+/* Inline code */
+.prose code:not(pre code) {
+  font-family: 'Berkeley Mono Condensed', monospace;
+  font-size: 0.88em;
+  color: #7A4F2E;
+}
+
+/* Strip the backtick ::before/::after added by @tailwindcss/typography */
+.prose code::before,
+.prose code::after {
+  content: none !important;
+}
+
+/* Code blocks — typewriter paper insert */
+.prose pre,
 .astro-code {
-    /* background-color: transparent !important; */
-    border: 1px solid black;
-    padding: 0.5rem;
+  position: relative;
+  font-family: 'Berkeley Mono Condensed', monospace;
+  font-size: 0.72em;
+  line-height: 1.85;
+  background-color: #FAF7F0 !important;
+  color: #1A0F0A;
+  padding: 1.25rem 1rem 1rem;
+  border-radius: 0;
+  border: 1px solid #C8BCA8;
+  overflow-x: auto;
+  margin: 2.5rem 0;
+  background-image:
+    radial-gradient(ellipse at 0% 0%,    rgba(160, 110, 40, 0.22) 0%, transparent 55%),
+    radial-gradient(ellipse at 100% 0%,  rgba(150, 100, 35, 0.18) 0%, transparent 50%),
+    radial-gradient(ellipse at 0% 100%,  rgba(155, 105, 38, 0.20) 0%, transparent 52%),
+    radial-gradient(ellipse at 100% 100%,rgba(165, 115, 42, 0.25) 0%, transparent 58%),
+    radial-gradient(ellipse at 50% 50%,  transparent 55%, rgba(130, 90, 30, 0.07) 100%),
+    url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.06'/%3E%3C/svg%3E");
+  box-shadow:
+    inset 0 0 40px rgba(120, 80, 25, 0.07),
+    0 1px 3px rgba(50, 30, 10, 0.08),
+    0 4px 12px rgba(50, 30, 10, 0.10),
+    0 8px 24px rgba(50, 30, 10, 0.06);
+}
+@media (min-width: 640px) {
+  .prose pre, .astro-code {
+    padding: 2.75rem 1.75rem 1.75rem;
+  }
+}
+.prose pre code,
+.astro-code code {
+  background: none;
+  border: none;
+  padding: 0;
+  font-size: inherit;
+  color: inherit;
+  counter-reset: step;
+  counter-increment: step 0;
+  display: block;
+  float: left;
+  min-width: 100%;
 }
 
-@media (prefers-color-scheme: dark) {
-    .astro-code {
-        background-color: transparent !important;
-        border: 1px solid white;
-    }
-
-    .astro-code,
-    .astro-code span {
-        color: var(--shiki-dark) !important;
-        /* background-color: var(--shiki-dark-bg) !important; */
-        /* Optional, if you also want font styles */
-        font-style: var(--shiki-dark-font-style) !important;
-        font-weight: var(--shiki-dark-font-weight) !important;
-        text-decoration: var(--shiki-dark-text-decoration) !important;
-    }
+/* Line numbers */
+.astro-code .line::before {
+  content: counter(step);
+  counter-increment: step;
+  width: 1rem;
+  margin-right: 1.5rem;
+  display: inline-block;
+  text-align: right;
+  color: #575279;
 }
 
-a:not(.nav-item) {
-    @apply text-cyan-500 dark:text-cyan-400 hover:underline font-semibold;
+/* Lines must be block-level so highlight bg spans full width */
+.astro-code .line {
+  display: inline-block;
+  width: 100%;
+}
+
+/* Shiki transformer — highlighted/diff lines */
+.astro-code .line.highlighted {
+  background-color: rgba(120, 80, 25, 0.12);
+}
+.astro-code .line.diff.add {
+  background-color: rgba(70, 149, 74, 0.25);
+}
+.astro-code .line.diff.remove {
+  background-color: rgba(190, 60, 60, 0.25);
+}
+
+
+/* Block quotes */
+.prose blockquote {
+  border-left: 3px solid #9B7940;
+  padding-left: 1.5rem;
+  margin: 2rem 0;
+  font-style: italic;
+  color: #5D4B3F;
+}
+.prose blockquote p {
+  margin-bottom: 0;
+}
+
+/* Unordered lists */
+.prose ul {
+  list-style: none;
+  padding-left: 0;
+  margin: 1.5rem 0;
+}
+.prose ul li {
+  position: relative;
+  padding-left: 1.75rem;
+  margin-bottom: 0.6rem;
+}
+.prose ul li::before {
+  content: '❧';
+  position: absolute;
+  left: 0;
+  color: #9B7940;
+  font-size: 0.75em;
+  top: 0.15em;
+}
+
+/* Ordered lists */
+.prose ol {
+  list-style: none;
+  padding-left: 0;
+  margin: 1.5rem 0;
+  counter-reset: prose-counter;
+}
+.prose ol li {
+  position: relative;
+  padding-left: 2.25rem;
+  margin-bottom: 0.6rem;
+  counter-increment: prose-counter;
+}
+.prose ol li::before {
+  content: counter(prose-counter) ".";
+  position: absolute;
+  left: 0;
+  font-family: 'Playfair Display', serif;
+  font-weight: 600;
+  color: #6B2D3E;
+  font-size: 0.95em;
+}
+
+/* Bold */
+.prose strong {
+  font-weight: 600;
+  color: #2C1810;
+}
+
+/* Italic */
+.prose em {
+  font-style: italic;
+  color: #4A3828;
+}
+
+/* Links within prose */
+.prose a {
+  color: #2D5F5D;
+  text-decoration: underline;
+  text-decoration-color: #7BA3A0;
+  text-underline-offset: 2px;
+  transition: text-decoration-color 0.15s ease;
+}
+.prose a:hover {
+  text-decoration-color: #2D5F5D;
+}
+
+/* Horizontal rule — styled as ornament divider */
+.prose hr {
+  border: none;
+  height: 1px;
+  background: linear-gradient(to right, transparent, #D4C5A9, transparent);
+  margin: 2.5rem 0;
+  position: relative;
+  overflow: visible;
+}
+.prose hr::after {
+  content: '❧';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: rgb(155, 121, 64);
+  font-family: 'Playfair Display', serif;
+  font-size: 1.5rem;
+  background-color: #F5F0E8;
+  padding: 0 0.75rem;
+  line-height: 1;
 }

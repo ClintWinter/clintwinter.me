@@ -1,113 +1,54 @@
 ---
 import ReadingListItem from '../components/ReadingListItem.astro';
-import ReadingListSection from '../components/ReadingListSection.astro';
 import MainLayout from "../layouts/MainLayout.astro";
+import OrnamentDivider from "../components/OrnamentDivider.astro";
+
+const resources = [
+    { title: 'Vanilla rails is plenty', href: 'https://dev.37signals.com/vanilla-rails-is-plenty/', tags: ['Rails', 'Architecture'] },
+    { title: 'Code I like (I): Domain-driven boldness', href: 'https://world.hey.com/jorge/code-i-like-i-domain-driven-boldness-71456476', tags: ['Rails', 'Architecture', 'DDD'] },
+    { title: 'Code I like (II): Fractal journeys', href: 'https://world.hey.com/jorge/code-i-like-ii-fractal-journeys-b7688f93', tags: ['Rails', 'Architecture', 'DDD'] },
+    { title: 'Code I like (III): Good concerns', href: 'https://world.hey.com/jorge/code-i-like-iii-good-concerns-5a1b391c', tags: ['Rails', 'Architecture', 'DDD'] },
+    { title: 'CUPID: The back story', href: 'https://dannorth.net/2021/03/16/cupid-the-back-story/', tags: ['SOLID'] },
+    { title: 'The new Closure::fromCallable() in PHP 7.1', href: 'https://josephsilber.com/posts/2016/07/13/closure-from-callable-in-php-7-1', tags: ['PHP'] },
+    { title: 'First class callable syntax', href: 'https://php.watch/versions/8.1/first-class-callable-syntax', tags: ['PHP'] },
+    { title: 'Dynamic Strategies', href: 'https://stitcher.io/blog/strategies', tags: ['PHP'] },
+    { title: 'Using DTOs to keep context', href: 'https://laravel-news.com/using-dtos-to-keep-context', tags: ['PHP'] },
+    { title: 'Scaling Laravel', href: 'https://mateusguimaraes.com/posts/scaling-laravel', tags: ['PHP'] },
+    { title: "How we're using static analysis to improve our codebase", href: 'https://flareapp.io/blog/32-how-were-using-static-analysis-to-improve-our-codebase', tags: ['PHP'] },
+    { title: "Laravel's Safety Mechanisms", href: 'https://planetscale.com/blog/laravels-safety-mechanisms', tags: ['PHP'] },
+    { title: 'Contract Tests', href: 'https://www.kai-sassnowski.com/post/contract-tests/', tags: ['PHP'] },
+    { title: 'Facades', href: 'https://laravel-news.com/facades', tags: ['PHP'] },
+    { title: 'Always use closed/open intervals', href: 'https://fhur.me/posts/always-use-closed-open-intervals', tags: ['Dates'] },
+    { title: 'HTML Hell', href: 'https://www.htmlhell.dev', tags: ['HTML'] },
+    { title: 'Object Design Style Guide - Matthias Noback', href: 'https://www.amazon.com/Object-Design-Style-Matthias-Noback/dp/1617296856', tags: ['PHP', 'OOP'] },
+    { title: 'Help developers contribute: Adding docker support to packages', href: 'https://downing.tech/posts/help-developers-contribute-adding-docker-support-to-packages', tags: ['Docker', 'PHP'] },
+    { title: 'Laravel content security policies', href: 'https://laravel-news.com/laravel-content-security-policies', tags: ['Security', 'Laravel'] },
+    { title: 'CSP', href: 'https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP', tags: ['Security', 'CSP'] },
+];
 ---
 
-<MainLayout title="Clint Winter | Reading List">
-    <main class="w-full max-w-prose mx-auto pt-1 rounded-sm">
-        <h1 class="mb-6 font-semibold text-lg">Reading list</h1>
-        <ul class="space-y-6">
-            <ReadingListItem 
-                tags={['Rails', 'Architecture']} 
-                href="https://dev.37signals.com/vanilla-rails-is-plenty/"
-            >Vanilla rails is plenty</ReadingListItem>
+<MainLayout title="Clint Winter | The Commonplace Book" backHref="/" backText="← Return Home" navBorder={false}>
+    <header class="mb-4 text-center">
+        <h1 class="font-heading text-4xl font-bold mb-3 text-burgundy">The Commonplace Book</h1>
+        <p class="font-body text-lg italic text-muted">Articles, essays, and resources worth returning to.</p>
+    </header>
 
-            <ReadingListItem 
-                tags={['Rails', 'Architecture', 'DDD']}
-                href="https://world.hey.com/jorge/code-i-like-i-domain-driven-boldness-71456476"
-            >Code I like (I): Domain-driven boldness</ReadingListItem>
+    <OrnamentDivider ornament="❧" />
 
-            <ReadingListItem 
-                tags={['Rails', 'Architecture', 'DDD']}
-                href="https://world.hey.com/jorge/code-i-like-ii-fractal-journeys-b7688f93"
-            >Code I like (II): Fractal journeys</ReadingListItem>
-
-            <ReadingListItem 
-                tags={['Rails', 'Architecture', 'DDD']}
-                href="https://world.hey.com/jorge/code-i-like-iii-good-concerns-5a1b391c"
-            >Code I like (III): Good concerns</ReadingListItem>
-
-            <ReadingListItem 
-                tags={['SOLID']}
-                href="https://dannorth.net/2021/03/16/cupid-the-back-story/"
-            >CUPID: The back story</ReadingListItem>
-
-            <ReadingListItem 
-                tags={['PHP']}
-                href="https://josephsilber.com/posts/2016/07/13/closure-from-callable-in-php-7-1"
-            >The new Closure::fromCallable() in PHP 7.1</ReadingListItem>
-
-            <ReadingListItem 
-                tags={['PHP']}
-                href="https://php.watch/versions/8.1/first-class-callable-syntax"
-            >First class callable syntax</ReadingListItem>
-
-            <ReadingListItem 
-                tags={['PHP']}
-                href="https://stitcher.io/blog/strategies"
-            >Dynamic Strategies</ReadingListItem>
-
-            <ReadingListItem 
-                tags={['PHP']}
-                href="https://laravel-news.com/using-dtos-to-keep-context"
-            >Using DTOs to keep context</ReadingListItem>
-
-            <!-- Laravel -->
-            <ReadingListItem 
-                tags={['PHP']}
-                href="https://mateusguimaraes.com/posts/scaling-laravel"
-            >Scaling Laravel</ReadingListItem>
-
-            <ReadingListItem 
-                tags={['PHP']}
-                href="https://flareapp.io/blog/32-how-were-using-static-analysis-to-improve-our-codebase"
-            >How we're using static analysis to improve our codebase</ReadingListItem>
-
-            <ReadingListItem 
-                tags={['PHP']}
-                href="https://planetscale.com/blog/laravels-safety-mechanisms"
-            >Laravel's Safety Mechanisms</ReadingListItem>
-
-            <ReadingListItem 
-                tags={['PHP']}
-                href="https://www.kai-sassnowski.com/post/contract-tests/"
-            >Contract Tests</ReadingListItem>
-
-            <ReadingListItem 
-                tags={['PHP']}
-                href="https://laravel-news.com/facades"
-            >Facades</ReadingListItem>
-
-            <ReadingListItem 
-                tags={['Dates']}
-                href="https://fhur.me/posts/always-use-closed-open-intervals"
-            >Always use closed/open intervals</ReadingListItem>
-
-            <ReadingListItem 
-                tags={['HTML']}
-                href="https://www.htmlhell.dev"
-            >Always use closed/open intervals</ReadingListItem>
-
-            <ReadingListItem 
-                tags={['PHP', 'OOP']}
-                href="https://www.amazon.com/Object-Design-Style-Matthias-Noback/dp/1617296856"
-            >Object Design Style Guide - Matthias Noback</ReadingListItem>
-
-            <ReadingListItem 
-                tags={['Docker', 'PHP']}
-                href="https://downing.tech/posts/help-developers-contribute-adding-docker-support-to-packages"
-            >Help developers contribute: Adding docker support to packages</ReadingListItem>
-
-            <ReadingListItem 
-                tags={['Security', 'Laravel']}
-                href="https://laravel-news.com/laravel-content-security-policies"
-            >Laravel content security policies</ReadingListItem>
-
-            <ReadingListItem 
-                tags={['Security', 'CSP']}
-                href="https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP"
-            >CSP</ReadingListItem>
+    <div class="max-w-xl mx-auto">
+        <ul class="list-none p-0 m-0">
+            {resources.map((resource, i) => (
+                <li>
+                    <ReadingListItem href={resource.href} tags={resource.tags}>
+                        {resource.title}
+                    </ReadingListItem>
+                    {i < resources.length - 1 && (
+                        <div class="h-px bg-gradient-to-r from-transparent via-tan to-transparent"></div>
+                    )}
+                </li>
+            ))}
         </ul>
-    </main>
+    </div>
+
+    <OrnamentDivider ornament="⁂" />
 </MainLayout>

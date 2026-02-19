@@ -15,6 +15,8 @@ The skeleton is simple:
 * Create a facade
 * Create a fake implementation of the contract that can be swapped for testing
 
+---
+
 ## The original service class
 
 Here's our original service class that we are starting with (apologies for not having a compelling example, but it isn't really necessary to contrive one for this).

@@ -1,37 +1,46 @@
 ---
 interface Frontmatter {
     title: string;
-    description?: string;
-    author?: string;
     publishedAt?: string;
-    createdAt?: string;
-    updatedAt?: string;
 }
 
 import { DateTime } from "luxon";
 import MainLayout from "../layouts/MainLayout.astro";
+import OrnamentDivider from "../components/OrnamentDivider.astro";
+import PostRow from "../components/PostRow.astro";
 import { guessDateFormat } from "../utils/dates";
 
-const posts = (await Astro.glob<Frontmatter>('./blog/*.md'))
+const posts = Object.values(
+    import.meta.glob<{ frontmatter: Frontmatter; url: string }>('./blog/*.md', { eager: true })
+)
     .filter((post) => post.frontmatter.publishedAt)
     .sort((a, b) => new Date(b.frontmatter.publishedAt!).getTime() - new Date(a.frontmatter.publishedAt!).getTime());
-
 ---
 
-<MainLayout title="Clint Winter | Blog">
-    <h1 class="text-lg mb-6 font-semibold">Latest Posts</h1>
+<MainLayout title="Clint Winter | Musings" backHref="/" backText="← Return Home" navBorder={false}>
+    <header class="mb-8 text-center">
+        <h1 class="font-heading text-4xl font-bold mb-2 text-burgundy">Musings</h1>
+        <p class="font-body text-xl italic text-muted">Notes on building software</p>
+    </header>
 
-    <ul class="space-y-2">
-        {posts.map((post) => (
+    <OrnamentDivider ornament="✦" />
+
+    <ul class="font-body">
+        {posts.map((post, i) => (
             <li>
-                <a class="mb-1" href={post.url}>
+                <PostRow
+                    href={post.url}
+                    date={guessDateFormat(post.frontmatter.publishedAt!).toLocaleString(DateTime.DATE_MED)}
+                    class="py-4"
+                >
                     {post.frontmatter.title}
-                </a>
-
-                <p class="text-sm text-slate-500">
-                    {guessDateFormat(post.frontmatter.publishedAt!).toLocaleString(DateTime.DATE_MED)}
-                </p>
+                </PostRow>
+                {i < posts.length - 1 && (
+                    <div class="h-px bg-gradient-to-r from-transparent via-tan to-transparent"></div>
+                )}
             </li>
         ))}
     </ul>
+
+    <OrnamentDivider ornament="⁂" />
 </MainLayout>

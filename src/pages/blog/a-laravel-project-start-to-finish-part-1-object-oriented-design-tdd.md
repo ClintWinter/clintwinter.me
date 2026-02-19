@@ -81,7 +81,7 @@ Funny, but I haven't actually started writing the actual application yet, or at 
 
 At this point I have begun writing the models and migrations for the objects that will be in the application. It's a little all over the place, but I started with the things that were easy, such as the relationships between a user, a course, and a lesson.
 
-```PHP
+```php
 // app/User.php
 
 namespace App;
@@ -141,7 +141,7 @@ class User extends Authenticatable
 }
 ```
 
-```PHP
+```php
 // tests/Feature/UserTest.php
 
 namespace Tests\Feature;
@@ -187,7 +187,7 @@ class UserTest extends TestCase
 
 I started with this test:
 
-```PHP
+```php
 // tests/Feature/UserTest.php
 
 /** @test */
@@ -203,7 +203,7 @@ function a_user_can_be_authenticated()
 
 I think this test passed immediately because the user model and migration was already setup from the start. So the next test was:
 
-```PHP
+```php
 /** @test */
 function a_user_can_register_for_a_course()
 {
@@ -230,7 +230,7 @@ $ php artisan make:migration create_courses_table -m
 
 This command creates the migration file for creating the `courses` table. The `-m` flag creates the model for it simultaneously. First I defined the columns for my `courses` table in the migration file:
 
-```PHP
+```php
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -267,7 +267,7 @@ class CreateCoursesTable extends Migration
 
 Then I created the factory function:
 
-```PHP
+```php
 $factory->define(Course::class, function (Faker $faker) {
     return [
         'name' => $faker->sentence,
@@ -279,7 +279,7 @@ $factory->define(Course::class, function (Faker $faker) {
 
 Next, I needed to define the relationships on the `User` and `Course` models.
 
-```PHP
+```php
 // app/User.php
 
 public function courses()
@@ -288,7 +288,7 @@ public function courses()
 }
 ```
 
-```PHP
+```php
 // app/Course.php
 
 public function users()
@@ -305,7 +305,7 @@ $ php artisan make:migration create_course_user_table
 
 In that migration we give the foreign keys of both the course and the user:
 
-```PHP
+```php
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -341,7 +341,7 @@ class CreateCourseUserTable extends Migration
 
 Now that we have the pivot table, the models, and their relationships defined, the last step is to create the `register()` method on the user so our test will pass.
 
-```PHP
+```php
 public function register(Course $course)
 {
     $this->courses()->save($course);

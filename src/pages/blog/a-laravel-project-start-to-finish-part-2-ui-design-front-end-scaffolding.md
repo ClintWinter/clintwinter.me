@@ -101,7 +101,7 @@ Let's add it to the project.
 2. Pull in the packages we will need to use tailwind. `$ npm install tailwindcss laravel-mix-tailwind`
 3. Add tailwind to `/webpack.mix.js`
 
-```JS
+```js
 // webpack.mix.js
 
 const mix = require('laravel-mix');
@@ -115,7 +115,7 @@ mix.js('resources/js/app.js', 'public/js')
 4. Rename or create your tailwind config file at the project root as `/tailwind.js`
 5. Use `/tailwind.js` config to extend the styling. Here I've added my color palette and added some extra height/width properties that I will use
 
-```JS
+```js
 module.exports = {
     theme: {
       extend: {
@@ -167,7 +167,7 @@ module.exports = {
 
 7. Under `/resources/js/` I emptied out most of the junk from `bootstrap.js` except for the two lines below. The only thing left in `app.js` is the line requiring `bootstrap.js`.
 
-```JS
+```js
 // bootstrap.js
 
 window.axios = require('axios');
@@ -184,7 +184,7 @@ Now that the design is complete in XD and I've got tailwind and sass setup, I'm 
 
 I added my route using the simple callback function for now in `/routes/web.php`
 
-```PHP
+```php
 // routes/web.php
 
 Route::get('/', function () {
@@ -193,7 +193,7 @@ Route::get('/', function () {
 ```
 This will now return the view that I'm creating next: `/resources/views/index.blade.php`. First I'll be creating my master layout page that the content of my index page will be inserted into.
 
-```HTML
+```html
 <!-- /resources/views/layouts/master.blade.php -->
 
 <!DOCTYPE html>
@@ -219,7 +219,7 @@ As you can see above, we are pulling in our processed resources in the head tag 
 
 Let's check out the skeleton of our index page.
 
-```HTML
+```html
 @extends('layouts.master')
 @section('main')
 

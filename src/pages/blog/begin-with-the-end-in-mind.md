@@ -19,7 +19,7 @@ If you are designing a form builder you may start running with the idea based on
 
 "I know I need to eventually print out the form's fields so maybe I have functions that take all the info I need and create the elements? Let's see..."
 
-```PHP
+```php
 // Form.php
 
 function createElements($elements)
@@ -39,7 +39,7 @@ function createElements($elements)
 
 Ta-da! Your brand new function for making elements--let's see it in action!
 
-```PHP
+```php
 <!-- myform.php -->
 
 <form action="submit/form.php" method="POST">
@@ -83,7 +83,7 @@ When we have to remember every place we copied and pasted code when it needs to 
 
 Would you rather use this?
 
-```PHP
+```php
 <!-- myform.php -->
 
 <form action="submit/form.php" method="POST">
@@ -117,7 +117,7 @@ Would you rather use this?
 
 ...or this?
 
-```PHP
+```php
 $form = new Form('POST', 'submit/form.php');
 $form->addElement(new FormHeader('Personal Information'))
      ->addElement(new FormTextField('Name'))
