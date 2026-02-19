@@ -36,7 +36,22 @@ body {
   background-color: #F5F0E8;
   color: #3D2B1F;
   background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.05'/%3E%3C/svg%3E");
+  transition: background-color 2s ease;
 }
+
+body.candlelight-mode {
+  background-color: #0B0F1A;
+}
+
+#footer-phrase {
+  transition: color 2s ease, text-shadow 2s ease;
+}
+
+body.candlelight-mode #footer-phrase {
+  color: rgba(220, 140, 40, 0.9) !important;
+  text-shadow: 0 0 8px rgba(220, 130, 25, 0.9), 0 0 24px rgba(200, 100, 10, 0.6), 0 0 50px rgba(170, 65, 5, 0.35);
+}
+
 
 /* Typography Utilities */
 .font-heading {

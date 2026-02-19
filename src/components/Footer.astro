@@ -1,6 +1,26 @@
 ---
 ---
 
-<footer class="mt-8 pt-4 text-center">
+<footer class="mt-8 pt-4 text-center space-y-2">
+    <p id="footer-phrase" class="font-body text-sm italic" style="color: #AAA098;">A place to wander by <span id="candlelight-trigger" class="cursor-pointer">candlelight</span>.</p>
     <p class="font-body italic" style="color: #8B7D6B;">❧ &copy; 2025 Clint Winter ❧</p>
 </footer>
+
+<script>
+    const trigger = document.getElementById('candlelight-trigger');
+    if (!trigger) throw new Error();
+
+    let active = false;
+
+    trigger.addEventListener('click', () => {
+        if (active) return;
+        active = true;
+
+        document.body.classList.add('candlelight-mode');
+
+        setTimeout(() => {
+            document.body.classList.remove('candlelight-mode');
+            setTimeout(() => { active = false; }, 2000);
+        }, 4000);
+    });
+</script>

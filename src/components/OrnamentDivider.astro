@@ -5,10 +5,40 @@ interface Props {
 }
 
 const { ornament = '❧', class: className = '' } = Astro.props;
+
+const ornaments = ['❧', '❦', '☙', '✦', '✻', '⁂', '✽', '❊', '❁', '✿', '❋', '✸', '✹', '❖', '⚜', '✤', '❃', '✾'];
 ---
 
 <div class={`flex items-center gap-4 my-10 ${className}`}>
     <div class="flex-1 h-px bg-gradient-to-r from-transparent to-tan"></div>
-    <span class="font-heading text-2xl select-none text-gold">{ornament}</span>
+    <span
+        class="font-heading text-2xl select-none text-gold cursor-pointer"
+        style="transition: opacity 800ms ease"
+        data-ornament-switcher
+        data-ornaments={JSON.stringify(ornaments)}
+    >{ornament}</span>
     <div class="flex-1 h-px bg-gradient-to-l from-transparent to-tan"></div>
 </div>
+
+<script>
+    document.querySelectorAll<HTMLElement>('[data-ornament-switcher]').forEach((el) => {
+        const ornaments: string[] = JSON.parse(el.dataset.ornaments ?? '[]');
+
+        el.addEventListener('click', () => {
+            if (el.dataset.animating) return;
+
+            const current = el.textContent ?? '';
+            const choices = ornaments.filter((o) => o !== current);
+            const next = choices[Math.floor(Math.random() * choices.length)];
+
+            el.dataset.animating = 'true';
+            el.style.opacity = '0';
+
+            setTimeout(() => {
+                el.textContent = next;
+                el.style.opacity = '1';
+                setTimeout(() => delete el.dataset.animating, 800);
+            }, 800);
+        });
+    });
+</script>
